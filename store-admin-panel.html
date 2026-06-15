@@ -16,14 +16,12 @@
       --gray-500: #888; --gray-700: #444; --gray-900: #1A1A1A;
       --success: #2D7D46; --danger: #C4541A;
       --radius: 8px; --shadow: 0 4px 12px rgba(0,0,0,0.08);
-      --transition: 0.25s ease;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', system-ui, sans-serif; background: var(--gray-100); color: var(--gray-900); line-height: 1.5; }
     button { cursor: pointer; border: none; background: none; font-family: inherit; }
     input, select, textarea { font-family: inherit; font-size: 0.875rem; }
 
-    /* --- Login Screen --- */
     .login-screen {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
       background: linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 100%);
@@ -38,29 +36,26 @@
     .login-card label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--gray-700); margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .login-card input {
       width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--gray-200); border-radius: var(--radius);
-      font-size: 0.9rem; transition: border-color var(--transition);
+      font-size: 0.9rem;
     }
     .login-card input:focus { outline: none; border-color: var(--indigo); }
     .login-btn {
       width: 100%; padding: 0.85rem; background: var(--indigo); color: var(--white);
       border-radius: var(--radius); font-size: 0.875rem; font-weight: 600;
-      letter-spacing: 0.04em; text-transform: uppercase; transition: background var(--transition);
-      margin-top: 0.5rem;
+      letter-spacing: 0.04em; text-transform: uppercase; margin-top: 0.5rem;
     }
     .login-btn:hover { background: var(--indigo-deep); }
     .login-error { color: var(--danger); font-size: 0.8rem; margin-top: 0.75rem; display: none; }
 
-    /* --- Dashboard --- */
     .dashboard { display: none; }
     .topbar {
       background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 0.75rem 1.5rem;
       display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50;
     }
     .topbar h2 { font-size: 1.1rem; font-weight: 700; color: var(--indigo-deep); }
-    .topbar-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .topbar-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
     .topbar-btn {
       padding: 0.5rem 1rem; border-radius: var(--radius); font-size: 0.8rem; font-weight: 600;
-      transition: all var(--transition);
     }
     .topbar-btn.primary { background: var(--terracotta); color: var(--white); }
     .topbar-btn.primary:hover { background: #A3430F; }
@@ -71,7 +66,6 @@
 
     .main { padding: 1.5rem; max-width: 1200px; margin: 0 auto; }
 
-    /* Stats Cards */
     .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
     .stat-card {
       background: var(--white); border-radius: var(--radius); padding: 1.25rem; box-shadow: var(--shadow);
@@ -83,12 +77,8 @@
     .stat-card-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-500); margin-bottom: 0.25rem; }
     .stat-card-value { font-size: 1.6rem; font-weight: 700; color: var(--gray-900); }
 
-    /* Products Table */
     .table-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-    .table-header {
-      padding: 1rem 1.25rem; border-bottom: 1px solid var(--gray-200);
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .table-header { padding: 1rem 1.25rem; border-bottom: 1px solid var(--gray-200); display: flex; align-items: center; justify-content: space-between; }
     .table-header h3 { font-size: 1rem; font-weight: 700; color: var(--indigo-deep); }
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
@@ -104,10 +94,7 @@
     .td-sku { font-size: 0.75rem; color: var(--gray-500); font-family: monospace; }
     .td-price { font-weight: 600; }
     .td-actions { display: flex; gap: 0.4rem; }
-    .td-btn {
-      padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600;
-      transition: all var(--transition);
-    }
+    .td-btn { padding: 0.35rem 0.65rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
     .td-btn.edit { background: #E3F2FD; color: #1565C0; }
     .td-btn.edit:hover { background: #1565C0; color: var(--white); }
     .td-btn.del { background: #FFEBEE; color: #C62828; }
@@ -115,19 +102,15 @@
     .td-btn.feat { background: #FFF8E1; color: #F57F17; }
     .td-btn.feat:hover { background: #F57F17; color: var(--white); }
     .td-btn.feat.active { background: #F57F17; color: var(--white); }
-    .badge-stock {
-      display: inline-block; padding: 0.15rem 0.5rem; border-radius: 100px;
-      font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
-    }
+    .badge-stock { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 100px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
     .badge-stock.available { background: #E8F5E9; color: var(--success); }
     .badge-stock.limited { background: #FFF8E1; color: #B8860B; }
     .badge-stock.out { background: #FFEBEE; color: #C62828; }
 
-    /* Form Modal */
     .form-overlay {
       position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.5);
       display: flex; align-items: center; justify-content: center; padding: 1rem;
-      opacity: 0; pointer-events: none; transition: opacity var(--transition);
+      opacity: 0; pointer-events: none;
     }
     .form-overlay.open { opacity: 1; pointer-events: auto; }
     .form-card {
@@ -137,24 +120,20 @@
     .form-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--indigo-deep); margin-bottom: 1.5rem; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-grid .full { grid-column: 1 / -1; }
-    .form-field { margin-bottom: 0; }
     .form-field label { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); margin-bottom: 0.3rem; }
     .form-field input, .form-field select, .form-field textarea {
       width: 100%; padding: 0.65rem 0.85rem; border: 1.5px solid var(--gray-200); border-radius: 6px;
-      transition: border-color var(--transition); background: var(--white);
     }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--indigo); }
     .form-field textarea { resize: vertical; min-height: 80px; }
     .form-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; justify-content: flex-end; }
     .form-actions .topbar-btn { padding: 0.65rem 1.5rem; }
 
-    /* Toast */
     .toast-container { position: fixed; top: 1rem; right: 1rem; z-index: 9999; display: flex; flex-direction: column; gap: 0.5rem; }
     .toast {
       padding: 0.85rem 1.25rem; border-radius: var(--radius); color: var(--white);
       font-size: 0.85rem; font-weight: 500; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-      display: flex; align-items: center; gap: 0.5rem;
     }
     .toast.success { background: var(--success); }
     .toast.error { background: var(--danger); }
@@ -162,16 +141,13 @@
     @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
     @keyframes fadeOut { to { opacity: 0; transform: translateX(50%); } }
 
-    /* Confirm Dialog */
     .confirm-overlay {
       position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.5);
       display: flex; align-items: center; justify-content: center; padding: 1rem;
-      opacity: 0; pointer-events: none; transition: opacity var(--transition);
+      opacity: 0; pointer-events: none;
     }
     .confirm-overlay.open { opacity: 1; pointer-events: auto; }
-    .confirm-card {
-      background: var(--white); border-radius: 12px; padding: 2rem; max-width: 400px; width: 100%; text-align: center;
-    }
+    .confirm-card { background: var(--white); border-radius: 12px; padding: 2rem; max-width: 400px; width: 100%; text-align: center; }
     .confirm-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem; }
     .confirm-card p { color: var(--gray-500); font-size: 0.88rem; margin-bottom: 1.5rem; }
     .confirm-btns { display: flex; gap: 0.75rem; justify-content: center; }
@@ -185,10 +161,9 @@
 </head>
 <body>
 
-<!-- Login -->
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
-    <h1>🔐 Admin Panel</h1>
+    <h1>Admin Panel</h1>
     <p>The Adire Store — Inventory Management</p>
     <div class="field">
       <label for="loginUser">Username</label>
@@ -203,23 +178,20 @@
   </div>
 </div>
 
-<!-- Dashboard -->
 <div class="dashboard" id="dashboard">
   <div class="topbar">
-    <h2>📦 Product Dashboard</h2>
+    <h2>Product Dashboard</h2>
     <div class="topbar-actions">
       <button class="topbar-btn primary" id="addProductBtn">+ Add Product</button>
-      <button class="topbar-btn outline" id="viewSiteBtn" onclick="window.open('index.html','_blank')">View Site</button>
+      <button class="topbar-btn outline" id="viewSiteBtn">View Site</button>
       <button class="topbar-btn danger" id="resetBtn">Reset Defaults</button>
       <button class="topbar-btn outline" id="logoutBtn">Logout</button>
     </div>
   </div>
 
   <div class="main">
-    <!-- Stats -->
     <div class="stats-row" id="statsRow"></div>
 
-    <!-- Products Table -->
     <div class="table-card">
       <div class="table-header">
         <h3>All Products</h3>
@@ -246,7 +218,6 @@
   </div>
 </div>
 
-<!-- Product Form Modal -->
 <div class="form-overlay" id="formOverlay">
   <div class="form-card">
     <h3 id="formTitle">Add New Product</h3>
@@ -322,7 +293,6 @@
   </div>
 </div>
 
-<!-- Confirm Dialog -->
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-card">
     <h4 id="confirmTitle">Are you sure?</h4>
@@ -334,49 +304,47 @@
   </div>
 </div>
 
-<!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
 
-<!-- Scripts -->
-<script src="js/store.js" data-adire-safe></script>
-<script data-adire-safe>
-(function(){
+<script src="js/store.js"></script>
+<script>
+(function () {
   'use strict';
 
-  /* ===========================
-     CREDENTIALS — CHANGE THESE!
-     =========================== */
-  const ADMIN_USER = 'adireadmin';
-  const ADMIN_PASS = 'adire2024!';
-  const SESSION_KEY = 'adire_admin_session';
+  var ADMIN_USER = 'adireadmin';
+  var ADMIN_PASS = 'adire2024!';
+  var SESSION_KEY = 'adire_admin_session';
 
-  // --- Toast ---
-  function toast(msg, type = 'success') {
-    const t = document.createElement('div');
-    t.className = `toast ${type}`;
-    t.textContent = msg;
-    document.getElementById('toastContainer').appendChild(t);
-    setTimeout(() => t.remove(), 3000);
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // --- Auth ---
-  const loginScreen = document.getElementById('loginScreen');
-  const dashboard = document.getElementById('dashboard');
+  function toast(msg, type) {
+    type = type || 'success';
+    var t = document.createElement('div');
+    t.className = 'toast ' + type;
+    t.textContent = msg;
+    document.getElementById('toastContainer').appendChild(t);
+    setTimeout(function () { t.remove(); }, 3000);
+  }
+
+  var loginScreen = document.getElementById('loginScreen');
+  var dashboard = document.getElementById('dashboard');
 
   function isLoggedIn() { return sessionStorage.getItem(SESSION_KEY) === 'true'; }
-  function login() { sessionStorage.setItem(SESSION_KEY, 'true'); }
-  function logout() { sessionStorage.removeItem(SESSION_KEY); }
+  function doLogin() { sessionStorage.setItem(SESSION_KEY, 'true'); }
+  function doLogout() { sessionStorage.removeItem(SESSION_KEY); }
 
   if (isLoggedIn()) showDashboard();
 
-  document.getElementById('loginBtn').addEventListener('click', doLogin);
-  document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  document.getElementById('loginBtn').addEventListener('click', loginHandler);
+  document.getElementById('loginPass').addEventListener('keydown', function (e) { if (e.key === 'Enter') loginHandler(); });
 
-  function doLogin() {
-    const u = document.getElementById('loginUser').value.trim();
-    const p = document.getElementById('loginPass').value;
+  function loginHandler() {
+    var u = document.getElementById('loginUser').value.trim();
+    var p = document.getElementById('loginPass').value;
     if (u === ADMIN_USER && p === ADMIN_PASS) {
-      login();
+      doLogin();
       showDashboard();
     } else {
       document.getElementById('loginError').style.display = 'block';
@@ -384,10 +352,14 @@
     }
   }
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    logout();
+  document.getElementById('logoutBtn').addEventListener('click', function () {
+    doLogout();
     dashboard.style.display = 'none';
     loginScreen.style.display = '';
+  });
+
+  document.getElementById('viewSiteBtn').addEventListener('click', function () {
+    window.open('index.html', '_blank');
   });
 
   function showDashboard() {
@@ -397,92 +369,73 @@
     renderTable();
   }
 
-  // --- Stats ---
+  var catLabels = { agbada: 'Agbada Set', dress: 'Dress', kaftan: 'Kaftan', fabric: 'Raw Fabric', accessory: 'Accessory' };
+
   function renderStats() {
-    const products = AdireStore.getAll();
-    const totalProducts = products.length;
-    const totalValue = products.reduce((s, p) => s + p.price, 0);
-    const featured = products.filter(p => p.featured).length;
-    const inStock = products.filter(p => p.stock === 'available').length;
+    var products = AdireStore.getAll();
+    var totalProducts = products.length;
+    var totalValue = products.reduce(function (s, p) { return s + p.price; }, 0);
+    var featured = products.filter(function (p) { return p.featured; }).length;
+    var inStock = products.filter(function (p) { return p.stock === 'available'; }).length;
 
-    document.getElementById('statsRow').innerHTML = `
-      <div class="stat-card">
-        <div class="stat-card-label">Total Products</div>
-        <div class="stat-card-value">${totalProducts}</div>
-      </div>
-      <div class="stat-card terracotta">
-        <div class="stat-card-label">Inventory Value</div>
-        <div class="stat-card-value">${AdireStore.formatPrice(totalValue)}</div>
-      </div>
-      <div class="stat-card gold">
-        <div class="stat-card-label">Featured Items</div>
-        <div class="stat-card-value">${featured}</div>
-      </div>
-      <div class="stat-card success">
-        <div class="stat-card-label">In Stock</div>
-        <div class="stat-card-value">${inStock} / ${totalProducts}</div>
-      </div>`;
+    document.getElementById('statsRow').innerHTML =
+      '<div class="stat-card"><div class="stat-card-label">Total Products</div><div class="stat-card-value">' + totalProducts + '</div></div>' +
+      '<div class="stat-card terracotta"><div class="stat-card-label">Inventory Value</div><div class="stat-card-value">' + AdireStore.formatPrice(totalValue) + '</div></div>' +
+      '<div class="stat-card gold"><div class="stat-card-label">Featured Items</div><div class="stat-card-value">' + featured + '</div></div>' +
+      '<div class="stat-card success"><div class="stat-card-label">In Stock</div><div class="stat-card-value">' + inStock + ' / ' + totalProducts + '</div></div>';
   }
-
-  // --- Table ---
-  const catLabels = { agbada: 'Agbada Set', dress: 'Dress', kaftan: 'Kaftan', fabric: 'Raw Fabric', accessory: 'Accessory' };
 
   function renderTable() {
-    const products = AdireStore.getAll();
-    document.getElementById('tableCount').textContent = `${products.length} products`;
-    const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = products.map(p => `
-      <tr>
-        <td><img class="td-img" src="${esc(p.image)}" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect fill=%22%23eee%22 width=%2248%22 height=%2248%22/></svg>'"></td>
-        <td><div class="td-name">${esc(p.name)}</div><div style="font-size:0.75rem;color:var(--gray-500);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(p.shortDesc)}</div></td>
-        <td><span class="td-sku">${esc(p.sku)}</span></td>
-        <td>${esc(catLabels[p.category] || p.categoryLabel || p.category)}</td>
-        <td class="td-price">${AdireStore.formatPrice(p.price)}</td>
-        <td><span class="badge-stock ${p.stock}">${p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Out'}</span></td>
-        <td><button class="td-btn feat ${p.featured ? 'active' : ''}" data-sku="${esc(p.sku)}" data-action="feat">★</button></td>
-        <td>
-          <div class="td-actions">
-            <button class="td-btn edit" data-sku="${esc(p.sku)}" data-action="edit">Edit</button>
-            <button class="td-btn del" data-sku="${esc(p.sku)}" data-action="del">Delete</button>
-          </div>
-        </td>
-      </tr>`).join('');
+    var products = AdireStore.getAll();
+    document.getElementById('tableCount').textContent = products.length + ' products';
+    var tbody = document.getElementById('tableBody');
+    tbody.innerHTML = products.map(function (p) {
+      var stockLabel = p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Out';
+      return '<tr>' +
+        '<td><img class="td-img" src="' + esc(p.image) + '" alt="" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22><rect fill=%22%23eee%22 width=%2248%22 height=%2248%22/></svg>\'"></td>' +
+        '<td><div class="td-name">' + esc(p.name) + '</div><div style="font-size:0.75rem;color:var(--gray-500);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(p.shortDesc) + '</div></td>' +
+        '<td><span class="td-sku">' + esc(p.sku) + '</span></td>' +
+        '<td>' + esc(catLabels[p.category] || p.categoryLabel || p.category) + '</td>' +
+        '<td class="td-price">' + AdireStore.formatPrice(p.price) + '</td>' +
+        '<td><span class="badge-stock ' + p.stock + '">' + stockLabel + '</span></td>' +
+        '<td><button class="td-btn feat ' + (p.featured ? 'active' : '') + '" data-sku="' + esc(p.sku) + '" data-action="feat">★</button></td>' +
+        '<td><div class="td-actions"><button class="td-btn edit" data-sku="' + esc(p.sku) + '" data-action="edit">Edit</button><button class="td-btn del" data-sku="' + esc(p.sku) + '" data-action="del">Delete</button></div></td>' +
+        '</tr>';
+    }).join('');
   }
 
-  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-  // --- Table Actions ---
-  document.getElementById('tableBody').addEventListener('click', e => {
-    const btn = e.target.closest('[data-action]');
+  document.getElementById('tableBody').addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-action]');
     if (!btn) return;
-    const sku = btn.dataset.sku;
-    const action = btn.dataset.action;
-
+    var sku = btn.dataset.sku;
+    var action = btn.dataset.action;
     if (action === 'feat') {
-      const p = AdireStore.getBySku(sku);
+      var p = AdireStore.getBySku(sku);
+      if (!p) return;
       AdireStore.update(sku, { featured: !p.featured });
       renderTable();
       renderStats();
       toast(p.featured ? 'Removed from featured' : 'Added to featured', 'info');
+    } else if (action === 'edit') {
+      openForm(sku);
+    } else if (action === 'del') {
+      confirmDelete(sku);
     }
-    if (action === 'edit') openForm(sku);
-    if (action === 'del') confirmDelete(sku);
   });
 
-  // --- Form ---
-  const formOverlay = document.getElementById('formOverlay');
-  let editingSku = null;
+  var formOverlay = document.getElementById('formOverlay');
+  var editingSku = null;
 
-  document.getElementById('addProductBtn').addEventListener('click', () => openForm(null));
+  document.getElementById('addProductBtn').addEventListener('click', function () { openForm(null); });
   document.getElementById('formCancel').addEventListener('click', closeForm);
-  formOverlay.addEventListener('click', e => { if (e.target === formOverlay) closeForm(); });
+  formOverlay.addEventListener('click', function (e) { if (e.target === formOverlay) closeForm(); });
 
   function openForm(sku) {
     editingSku = sku;
     document.getElementById('formTitle').textContent = sku ? 'Edit Product' : 'Add New Product';
-
     if (sku) {
-      const p = AdireStore.getBySku(sku);
+      var p = AdireStore.getBySku(sku);
+      if (!p) return;
       document.getElementById('fSku').value = p.sku;
       document.getElementById('fSku').disabled = true;
       document.getElementById('fName').value = p.name;
@@ -499,53 +452,46 @@
       document.getElementById('fFeatured').checked = p.featured;
     } else {
       document.getElementById('fSku').disabled = false;
-      ['fSku','fName','fCatLabel','fBadge','fImage','fShortDesc','fDesc','fSizes','fTags'].forEach(id => document.getElementById(id).value = '');
+      ['fSku','fName','fCatLabel','fBadge','fImage','fShortDesc','fDesc','fSizes','fTags'].forEach(function (id) { document.getElementById(id).value = ''; });
       document.getElementById('fPrice').value = '';
       document.getElementById('fCategory').value = 'dress';
       document.getElementById('fStock').value = 'available';
       document.getElementById('fFeatured').checked = false;
     }
-
     formOverlay.classList.add('open');
   }
 
   function closeForm() { formOverlay.classList.remove('open'); editingSku = null; }
 
-  document.getElementById('formSave').addEventListener('click', () => {
-    const sku = document.getElementById('fSku').value.trim();
-    const name = document.getElementById('fName').value.trim();
-    const price = parseInt(document.getElementById('fPrice').value);
-    const image = document.getElementById('fImage').value.trim();
-    const shortDesc = document.getElementById('fShortDesc').value.trim();
-
+  document.getElementById('formSave').addEventListener('click', function () {
+    var sku = document.getElementById('fSku').value.trim();
+    var name = document.getElementById('fName').value.trim();
+    var price = parseInt(document.getElementById('fPrice').value, 10);
+    var image = document.getElementById('fImage').value.trim();
+    var shortDesc = document.getElementById('fShortDesc').value.trim();
     if (!sku || !name || !price || !image || !shortDesc) {
-      toast('Please fill in all required fields (*)', 'error');
-      return;
+      toast('Please fill in all required fields (*)', 'error'); return;
     }
-
     if (!editingSku && AdireStore.getBySku(sku)) {
-      toast('SKU already exists. Use a unique SKU.', 'error');
-      return;
+      toast('SKU already exists. Use a unique SKU.', 'error'); return;
     }
-
-    const category = document.getElementById('fCategory').value;
-    const data = {
-      sku,
-      name,
-      category,
+    var category = document.getElementById('fCategory').value;
+    var data = {
+      sku: sku,
+      name: name,
+      category: category,
       categoryLabel: document.getElementById('fCatLabel').value.trim() || catLabels[category] || category,
-      price,
+      price: price,
       stock: document.getElementById('fStock').value,
       badge: document.getElementById('fBadge').value.trim(),
-      image,
-      shortDesc,
+      image: image,
+      shortDesc: shortDesc,
       description: document.getElementById('fDesc').value.trim(),
-      sizes: document.getElementById('fSizes').value.split(',').map(s => s.trim()).filter(Boolean),
-      tags: document.getElementById('fTags').value.split(',').map(s => s.trim()).filter(Boolean),
+      sizes: document.getElementById('fSizes').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean),
+      tags: document.getElementById('fTags').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean),
       featured: document.getElementById('fFeatured').checked,
       createdAt: editingSku ? (AdireStore.getBySku(editingSku).createdAt || new Date().toISOString().split('T')[0]) : new Date().toISOString().split('T')[0]
     };
-
     if (editingSku) {
       AdireStore.update(editingSku, data);
       toast('Product updated successfully');
@@ -553,28 +499,39 @@
       AdireStore.add(data);
       toast('Product added successfully');
     }
-
     closeForm();
     renderTable();
     renderStats();
   });
 
-  // --- Confirm Delete ---
-  const confirmOverlay = document.getElementById('confirmOverlay');
-  let pendingDeleteSku = null;
+  var confirmOverlay = document.getElementById('confirmOverlay');
+  var pendingDeleteSku = null;
 
   function confirmDelete(sku) {
-    const p = AdireStore.getBySku(sku);
+    var p = AdireStore.getBySku(sku);
+    if (!p) return;
     pendingDeleteSku = sku;
-    document.getElementById('confirmTitle').textContent = `Delete "${p.name}"?`;
-    document.getElementById('confirmMsg').textContent = `This will permanently remove ${p.name} (${p.sku}) from the store. This cannot be undone.`;
+    document.getElementById('confirmTitle').textContent = 'Delete "' + p.name + '"?';
+    document.getElementById('confirmMsg').textContent = 'This will permanently remove ' + p.name + ' (' + p.sku + ') from the store. This cannot be undone.';
+    document.getElementById('confirmOk').textContent = 'Delete';
     confirmOverlay.classList.add('open');
   }
 
-  document.getElementById('confirmCancel').addEventListener('click', () => { confirmOverlay.classList.remove('open'); pendingDeleteSku = null; });
-  document.getElementById('confirmOk').addEventListener('click', () => {
-    if (pendingDeleteSku) {
-      AdireStore.delete(pendingDeleteSku);
+  document.getElementById('confirmCancel').addEventListener('click', function () {
+    confirmOverlay.classList.remove('open');
+    pendingDeleteSku = null;
+  });
+
+  document.getElementById('confirmOk').addEventListener('click', function () {
+    if (pendingDeleteSku === '__RESET__') {
+      AdireStore.reset();
+      toast('Products reset to defaults', 'info');
+      pendingDeleteSku = null;
+      confirmOverlay.classList.remove('open');
+      renderTable();
+      renderStats();
+    } else if (pendingDeleteSku) {
+      AdireStore.remove(pendingDeleteSku);
       toast('Product deleted');
       pendingDeleteSku = null;
       confirmOverlay.classList.remove('open');
@@ -583,27 +540,12 @@
     }
   });
 
-  // --- Reset ---
-  document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('resetBtn').addEventListener('click', function () {
     pendingDeleteSku = '__RESET__';
     document.getElementById('confirmTitle').textContent = 'Reset to Defaults?';
     document.getElementById('confirmMsg').textContent = 'This will restore all products to the original 8 defaults and remove any custom products. This cannot be undone.';
     document.getElementById('confirmOk').textContent = 'Reset';
     confirmOverlay.classList.add('open');
-  });
-
-  // Override confirm for reset
-  const origConfirmOk = document.getElementById('confirmOk');
-  origConfirmOk.addEventListener('click', () => {
-    if (pendingDeleteSku === '__RESET__') {
-      AdireStore.reset();
-      toast('Products reset to defaults', 'info');
-      pendingDeleteSku = null;
-      confirmOverlay.classList.remove('open');
-      document.getElementById('confirmOk').textContent = 'Delete';
-      renderTable();
-      renderStats();
-    }
   });
 
 })();
