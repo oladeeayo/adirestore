@@ -162,7 +162,7 @@
     getBySku(sku) { return this.getAll().find(p => p.sku === sku); },
     getCategories() {
       const cats = new Map();
-      this.getAll().forEach(p => cats.set(p.category, p.categoryLabel));
+      this.getAll().forEach(p => { if (!cats.has(p.category)) cats.set(p.category, p.categoryLabel); });
       return cats;
     },
     search(q) {

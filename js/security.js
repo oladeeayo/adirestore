@@ -8,8 +8,15 @@
   const ALLOWED_DOMAINS = [
     'theadirestore.com',
     'www.theadirestore.com',
+    'adirestore.vercel.app',
     'localhost',
     '127.0.0.1'
+  ];
+
+  const SAFE_SCRIPT_DOMAINS = [
+    'cdn.amplitude.com',
+    'fonts.googleapis.com',
+    'fonts.gstatic.com'
   ];
 
   // Block suspicious redirects
@@ -55,11 +62,18 @@
       .replace(/data\s*:/gi, '');
   }
 
+  function isScriptSafe(node) {
+    if (node.hasAttribute('data-adire-safe')) return true;
+    const src = node.src || '';
+    return SAFE_SCRIPT_DOMAINS.some(d => src.includes(d));
+  }
+
   // Watch for injected scripts
   const observer = new MutationObserver(mutations => {
     mutations.forEach(m => {
       m.addedNodes.forEach(node => {
-        if (node.tagName === 'SCRIPT' && !node.hasAttribute('data-adire-safe')) {
+        if (node.nodeType !== 1) return;
+        if (node.tagName === 'SCRIPT' && !isScriptSafe(node)) {
           node.remove();
           console.warn('[Security] Removed injected script');
         }
