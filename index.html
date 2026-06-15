@@ -1,1820 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO Meta Tags -->
-  <title>The Adire Store Limited | Authentic Nigerian Adire Clothing & Fabric</title>
-  <meta name="description" content="Discover handcrafted authentic Nigerian Adire clothing at The Adire Store Limited. Shop premium Adire attire, fabric, and accessories rooted in Yoruba heritage. Order now via WhatsApp." />
-  <meta name="keywords" content="adire, adire clothing, Nigerian adire, Yoruba fabric, adire store, authentic adire, tie-dye Nigeria, adire attire, adire fashion, Nigerian traditional wear, adire online store" />
-  <meta name="author" content="The Adire Store Limited" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://theadirestore.com/" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://theadirestore.com/" />
-  <meta property="og:title" content="The Adire Store Limited | Authentic Nigerian Adire Clothing" />
-  <meta property="og:description" content="Premium handcrafted Adire attire rooted in Yoruba heritage. Each piece tells a story. Shop now." />
-  <meta property="og:image" content="https://theadirestore.com/og-image.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Adire Store Limited | Authentic Adire Clothing" />
-  <meta name="twitter:description" content="Premium handcrafted Adire attire rooted in Yoruba heritage." />
-  <meta name="twitter:image" content="https://theadirestore.com/og-image.jpg" />
-
-  <!-- Structured Data -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.amplitude.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.pexels.com data:; connect-src 'self' https://*.amplitude.com;">
+  <title>The Adire Store Limited — Authentic Nigerian Adire Clothing</title>
+  <meta name="description" content="Premium hand-dyed Adire clothing from Nigeria. Agbada sets, dresses, kaftans, and raw fabric — all crafted by master artisans in Abeokuta.">
+  <meta property="og:title" content="The Adire Store Limited">
+  <meta property="og:description" content="Premium hand-dyed Adire clothing. Authentic Nigerian heritage, modern craft.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theadirestore.com">
+  <link rel="canonical" href="https://theadirestore.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "ClothingStore",
-    "name": "The Adire Store Limited",
-    "description": "Authentic handcrafted Nigerian Adire clothing and fabric rooted in Yoruba heritage.",
-    "url": "https://theadirestore.com",
-    "telephone": "+2348000000000",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "NG"
-    },
-    "sameAs": [
-      "https://instagram.com/theadirestore",
-      "https://facebook.com/theadirestore"
-    ]
+    "@context":"https://schema.org",
+    "@type":"ClothingStore",
+    "name":"The Adire Store Limited",
+    "description":"Premium hand-dyed Adire clothing from Nigeria",
+    "url":"https://theadirestore.com",
+    "telephone":"+2348000000000",
+    "priceRange":"₦18,000 – ₦85,000",
+    "address":{"@type":"PostalAddress","addressCountry":"NG"}
   }
   </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --indigo: #1B2A6B;
-      --indigo-deep: #0F1A4A;
-      --indigo-light: #2D4499;
-      --cream: #F9F4EC;
-      --cream-dark: #EDE5D8;
-      --terracotta: #C4541A;
-      --terracotta-light: #E06030;
-      --gold: #D4A853;
-      --gold-light: #E8C47A;
-      --charcoal: #2C2C2C;
-      --text-mid: #5A5A5A;
-      --white: #FFFFFF;
-      --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-      --font-body: 'Inter', -apple-system, sans-serif;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--charcoal);
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 5vw;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-    }
-    nav.scrolled {
-      background: rgba(27, 42, 107, 0.97);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 30px rgba(0,0,0,0.15);
-    }
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-      text-decoration: none;
-    }
-    .nav-logo-main {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--white);
-      letter-spacing: 0.01em;
-    }
-    .nav-logo-sub {
-      font-size: 0.6rem;
-      color: var(--gold);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--terracotta);
-      color: var(--white) !important;
-      padding: 0.55rem 1.4rem;
-      border-radius: 2px;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--terracotta-light) !important; color: var(--white) !important; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      transition: 0.3s;
-    }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      background: var(--indigo-deep);
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-    }
-
-    .hero-bg-img {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 70% 50%, rgba(212,168,83,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 20% 80%, rgba(196,84,26,0.15) 0%, transparent 45%),
-        linear-gradient(135deg, #0F1A4A 0%, #1B2A6B 50%, #0F1A4A 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 0 5vw;
-      max-width: 780px;
-      margin-top: 80px;
-    }
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.8rem;
-    }
-    .hero-eyebrow-line {
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-    }
-    .hero-eyebrow-text {
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 7vw, 6rem);
-      color: var(--white);
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .hero-desc {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.75;
-      max-width: 480px;
-      margin-bottom: 2.8rem;
-      font-weight: 300;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--terracotta);
-      color: var(--white);
-      padding: 0.95rem 2.2rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover { background: var(--terracotta-light); transform: translateY(-1px); }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      color: var(--white);
-      padding: 0.95rem 2.2rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(212,168,83,0.1); }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 5vw;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      z-index: 2;
-    }
-    .hero-scroll-line {
-      width: 50px;
-      height: 1px;
-      background: rgba(255,255,255,0.3);
-    }
-    .hero-scroll-text {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* Adire SVG Pattern Decorative */
-    .hero-deco {
-      position: absolute;
-      right: -2%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52%;
-      max-width: 680px;
-      opacity: 0.9;
-      z-index: 1;
-    }
-
-    /* ─── SECTION COMMONS ─── */
-    section { padding: 7rem 5vw; }
-
-    .section-eyebrow {
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 600;
-      margin-bottom: 0.8rem;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      color: var(--indigo);
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-    }
-    .section-lead {
-      font-size: 1rem;
-      color: var(--text-mid);
-      line-height: 1.8;
-      max-width: 560px;
-      font-weight: 300;
-    }
-
-    /* ─── ABOUT BAND ─── */
-    .about {
-      background: var(--indigo);
-      color: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about .section-eyebrow { color: var(--gold); }
-    .about .section-title { color: var(--white); }
-    .about .section-lead { color: rgba(255,255,255,0.72); max-width: 100%; }
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .about-stat-num {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .about-stat-label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 0.3rem;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-img-frame {
-      aspect-ratio: 4/5;
-      border-radius: 4px;
-      overflow: hidden;
-      background: var(--indigo-light);
-      position: relative;
-    }
-    .about-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #2D4499, #1B2A6B);
-    }
-    .about-img-placeholder svg { opacity: 0.5; }
-    .about-img-placeholder span {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-top: 1rem;
-    }
-    .about-badge {
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      width: 110px;
-      height: 110px;
-      background: var(--terracotta);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      text-align: center;
-    }
-    .about-badge-num {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-    .about-badge-text {
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-
-    /* ─── PRODUCTS ─── */
-    .products { background: var(--cream); }
-    .products-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 3.5rem;
-      gap: 2rem;
-    }
-    .products-filter {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 0.45rem 1.2rem;
-      border: 1.5px solid var(--cream-dark);
-      background: transparent;
-      color: var(--text-mid);
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--indigo);
-      color: var(--white);
-      border-color: var(--indigo);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: 4px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(27,42,107,0.12);
-    }
-    .product-img {
-      aspect-ratio: 3/4;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-img-inner {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.5s var(--ease-out);
-    }
-    .product-card:hover .product-img-inner { transform: scale(1.04); }
-    .product-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: var(--terracotta);
-      color: var(--white);
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 2px;
-      z-index: 1;
-    }
-    .product-badge.new { background: var(--indigo); }
-    .product-sku-tag {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(0,0,0,0.45);
-      color: rgba(255,255,255,0.8);
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-      z-index: 1;
-      backdrop-filter: blur(4px);
-    }
-    .product-quick-view {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      background: rgba(27,42,107,0.92);
-      color: var(--white);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.55rem 1.4rem;
-      border-radius: 2px;
-      opacity: 0;
-      transition: opacity 0.25s, transform 0.25s;
-      white-space: nowrap;
-      backdrop-filter: blur(4px);
-      pointer-events: none;
-    }
-    .product-card:hover .product-quick-view {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
-    }
-    .product-info {
-      padding: 1.25rem;
-      border-top: 1px solid var(--cream-dark);
-    }
-    .product-category {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-    .product-name {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--indigo);
-      margin-bottom: 0.3rem;
-      line-height: 1.3;
-    }
-    .product-desc-short {
-      font-size: 0.78rem;
-      color: var(--text-mid);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .product-price {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      color: var(--charcoal);
-    }
-    .product-price span {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      color: var(--text-mid);
-      font-style: normal;
-      margin-left: 2px;
-    }
-    .product-order-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--terracotta);
-      color: var(--white);
-      border: none;
-      padding: 0.55rem 1rem;
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s;
-      text-decoration: none;
-    }
-    .product-order-btn:hover { background: var(--terracotta-light); }
-
-    /* ─── MODAL ─── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(15,26,74,0.82);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      backdrop-filter: blur(6px);
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--white);
-      border-radius: 6px;
-      max-width: 900px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      animation: modalIn 0.35s var(--ease-out);
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.96) translateY(10px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .modal-close {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.2rem;
-      background: var(--cream);
-      border: none;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--charcoal);
-      z-index: 10;
-      transition: background 0.2s;
-    }
-    .modal-close:hover { background: var(--cream-dark); }
-    .modal-image {
-      aspect-ratio: 1;
-      overflow: hidden;
-      border-radius: 6px 0 0 6px;
-    }
-    .modal-image-inner {
-      width: 100%;
-      height: 100%;
-    }
-    .modal-details {
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .modal-category {
-      font-size: 0.62rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-    }
-    .modal-name {
-      font-family: var(--font-display);
-      font-size: 1.9rem;
-      color: var(--indigo);
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-    .modal-sku {
-      font-size: 0.65rem;
-      color: var(--text-mid);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-    .modal-price {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
-    }
-    .modal-desc {
-      font-size: 0.88rem;
-      color: var(--text-mid);
-      line-height: 1.85;
-      margin-bottom: 1.8rem;
-      flex: 1;
-    }
-    .modal-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.8rem;
-    }
-    .modal-tag {
-      background: var(--cream);
-      color: var(--indigo);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.75rem;
-      border-radius: 2px;
-      border: 1px solid var(--cream-dark);
-    }
-    .modal-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .modal-whatsapp {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      background: #25D366;
-      color: var(--white);
-      border: none;
-      padding: 1rem 1.5rem;
-      border-radius: 3px;
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .modal-whatsapp:hover { background: #1ebe5d; transform: translateY(-1px); }
-    .modal-enquire {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border: 1.5px solid var(--cream-dark);
-      background: transparent;
-      color: var(--text-mid);
-      padding: 0.75rem;
-      border-radius: 3px;
-      font-size: 0.78rem;
-      font-family: var(--font-body);
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .modal-enquire:hover { border-color: var(--indigo); color: var(--indigo); }
-
-    /* ─── PROCESS ─── */
-    .process {
-      background: var(--cream-dark);
-    }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-    .process-step {
-      position: relative;
-      padding-top: 1rem;
-    }
-    .process-step-num {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      color: rgba(27,42,107,0.08);
-      line-height: 1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-style: italic;
-    }
-    .process-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--indigo);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.2rem;
-      position: relative;
-      z-index: 1;
-    }
-    .process-step h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: var(--indigo);
-      margin-bottom: 0.6rem;
-    }
-    .process-step p {
-      font-size: 0.83rem;
-      color: var(--text-mid);
-      line-height: 1.75;
-    }
-
-    /* ─── TESTIMONIALS ─── */
-    .testimonials { background: var(--white); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-    .testimonial-card {
-      background: var(--cream);
-      padding: 2rem;
-      border-radius: 4px;
-      position: relative;
-      border-left: 3px solid var(--terracotta);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(27,42,107,0.08);
-    }
-    .testimonial-quote-mark {
-      font-family: var(--font-display);
-      font-size: 5rem;
-      color: var(--terracotta);
-      opacity: 0.15;
-      line-height: 0.6;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .testimonial-text {
-      font-size: 0.88rem;
-      color: var(--charcoal);
-      line-height: 1.85;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .testimonial-stars {
-      color: var(--gold);
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .testimonial-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      color: var(--white);
-      flex-shrink: 0;
-    }
-    .testimonial-author-name {
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--indigo);
-    }
-    .testimonial-author-loc {
-      font-size: 0.72rem;
-      color: var(--text-mid);
-      margin-top: 1px;
-    }
-
-    /* ─── INSTAGRAM BAND ─── */
-    .insta-band {
-      background: var(--indigo);
-      padding: 5rem 5vw;
-      text-align: center;
-    }
-    .insta-band .section-eyebrow { color: var(--gold); }
-    .insta-band .section-title { color: var(--white); }
-    .insta-band .section-lead { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; text-align: center; }
-    .insta-handle {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--gold);
-      font-style: italic;
-      display: block;
-      margin-bottom: 2.5rem;
-    }
-
-    /* ─── CTA BANNER ─── */
-    .cta-banner {
-      background: var(--terracotta);
-      padding: 5rem 5vw;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 3rem;
-    }
-    .cta-banner h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .cta-banner h2 em { font-style: italic; color: rgba(255,255,255,0.75); }
-    .cta-banner-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--white);
-      color: var(--terracotta);
-      padding: 1rem 2.2rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-white:hover { background: var(--cream); transform: translateY(-1px); }
-    .btn-outline-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 2px solid rgba(255,255,255,0.6);
-      color: var(--white);
-      padding: 1rem 2.2rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.12); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--indigo-deep);
-      color: rgba(255,255,255,0.65);
-      padding: 5rem 5vw 2.5rem;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 4rem;
-    }
-    .footer-brand-name {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 0.3rem;
-    }
-    .footer-brand-sub {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .footer-tagline {
-      font-size: 0.83rem;
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-    .footer-social {
-      display: flex;
-      gap: 0.75rem;
-    }
-    .footer-social-link {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.65);
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .footer-social-link:hover { border-color: var(--gold); color: var(--gold); }
-    .footer-col-title {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.65rem; }
-    .footer-col ul li a {
-      color: rgba(255,255,255,0.55);
-      text-decoration: none;
-      font-size: 0.83rem;
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-bottom p { font-size: 0.75rem; }
-    .footer-bottom a { color: var(--gold); text-decoration: none; }
-
-    /* ─── WHATSAPP FLOAT ─── */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 90;
-      width: 58px;
-      height: 58px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 25px rgba(37,211,102,0.45);
-      text-decoration: none;
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
-      animation: floatPulse 3s ease-in-out infinite;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 35px rgba(37,211,102,0.55);
-    }
-    @keyframes floatPulse {
-      0%, 100% { box-shadow: 0 6px 25px rgba(37,211,102,0.45); }
-      50% { box-shadow: 0 6px 40px rgba(37,211,102,0.65); }
-    }
-
-    /* ─── ANIMATIONS ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .about { grid-template-columns: 1fr; }
-      .about-visual { display: none; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .modal { grid-template-columns: 1fr; }
-      .modal-image { aspect-ratio: 16/9; border-radius: 6px 6px 0 0; }
-      .cta-banner { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 680px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      nav.menu-open .nav-links {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        inset: 0;
-        background: var(--indigo-deep);
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        z-index: 99;
-        font-size: 1.2rem;
-      }
-      .hero h1 { font-size: 2.8rem; }
-      .hero-deco { display: none; }
-      .process-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      section { padding: 4.5rem 5vw; }
-      .products-header { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; animation: none !important; }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav id="mainNav">
-    <a href="#" class="nav-logo" aria-label="The Adire Store Limited - Home">
-      <span class="nav-logo-main">The Adire Store</span>
-      <span class="nav-logo-sub">Limited · Est. 2018</span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#products">Shop</a></li>
-      <li><a href="#about">Our Story</a></li>
-      <li><a href="#process">Craft</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="nav-cta">Order on WhatsApp</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">The Adire Store</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">Our Story</a>
+      <a href="#products">Collection</a>
+      <a href="#process">How It Works</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="catalogue.html">Full Catalogue</a>
+      <a href="catalogue.html" class="nav-cta">Shop Now</a>
+    </div>
+    <button class="nav-hamburger" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-  </nav>
+  </div>
+</nav>
 
-  <!-- ─── HERO ─── -->
-  <section class="hero" id="home" aria-label="Hero">
-    <div class="hero-bg-img" aria-hidden="true"></div>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg" style="background-image:url('https://images.pexels.com/photos/8655018/pexels-photo-8655018.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
+    <div class="hero-badge">✦ Handcrafted in Nigeria</div>
+    <h1>Wear the <em>Heritage</em> of Yorùbá Indigo</h1>
+    <p>Every piece in our collection is hand-dyed by master artisans in Abeokuta using centuries-old resist techniques. No two garments are alike.</p>
+    <div class="hero-btns">
+      <a href="catalogue.html" class="btn btn-primary btn-lg">Explore Collection</a>
+      <a href="#products" class="btn btn-secondary btn-lg" style="border-color:rgba(255,255,255,0.4);color:var(--white)">Featured Pieces</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </div>
+</section>
 
-    <!-- Decorative Adire SVG Pattern -->
-    <svg class="hero-deco" viewBox="0 0 600 750" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- Background frame -->
-      <rect x="20" y="20" width="560" height="710" rx="6" fill="#2D4499" opacity="0.5"/>
-      <!-- Adire circles pattern -->
-      <g opacity="0.7">
-        <circle cx="300" cy="375" r="280" stroke="#D4A853" stroke-width="1.5" fill="none" opacity="0.3"/>
-        <circle cx="300" cy="375" r="200" stroke="#D4A853" stroke-width="1" fill="none" opacity="0.4"/>
-        <circle cx="300" cy="375" r="120" stroke="#D4A853" stroke-width="1.5" fill="none" opacity="0.5"/>
-        <!-- Adire-style geometric patterns -->
-        <g stroke="#C4E0FF" stroke-width="1" opacity="0.6">
-          <!-- Diamond grid -->
-          <line x1="60" y1="375" x2="540" y2="375"/>
-          <line x1="300" y1="95" x2="300" y2="655"/>
-          <line x1="60" y1="95" x2="540" y2="655"/>
-          <line x1="540" y1="95" x2="60" y2="655"/>
-          <!-- Additional diagonals -->
-          <line x1="60" y1="235" x2="540" y2="515"/>
-          <line x1="540" y1="235" x2="60" y2="515"/>
-          <line x1="180" y1="95" x2="180" y2="655"/>
-          <line x1="420" y1="95" x2="420" y2="655"/>
-          <line x1="60" y1="235" x2="540" y2="235"/>
-          <line x1="60" y1="515" x2="540" y2="515"/>
-        </g>
-        <!-- Adire dots -->
-        <g fill="#D4A853" opacity="0.6">
-          <circle cx="300" cy="95" r="5"/>
-          <circle cx="300" cy="655" r="5"/>
-          <circle cx="60" cy="375" r="5"/>
-          <circle cx="540" cy="375" r="5"/>
-          <circle cx="180" cy="235" r="4"/>
-          <circle cx="420" cy="235" r="4"/>
-          <circle cx="180" cy="515" r="4"/>
-          <circle cx="420" cy="515" r="4"/>
-          <circle cx="300" cy="375" r="10"/>
-          <circle cx="300" cy="375" r="5" fill="#C4541A"/>
-        </g>
-        <!-- Pattern cells -->
-        <g fill="none" stroke="#8AA4E8" stroke-width="0.8" opacity="0.5">
-          <rect x="120" y="155" width="120" height="120" rx="2"/>
-          <rect x="360" y="155" width="120" height="120" rx="2"/>
-          <rect x="120" y="475" width="120" height="120" rx="2"/>
-          <rect x="360" y="475" width="120" height="120" rx="2"/>
-          <!-- Inner details -->
-          <line x1="120" y1="215" x2="240" y2="215"/>
-          <line x1="180" y1="155" x2="180" y2="275"/>
-          <line x1="360" y1="215" x2="480" y2="215"/>
-          <line x1="420" y1="155" x2="420" y2="275"/>
-          <line x1="120" y1="535" x2="240" y2="535"/>
-          <line x1="180" y1="475" x2="180" y2="595"/>
-          <line x1="360" y1="535" x2="480" y2="535"/>
-          <line x1="420" y1="475" x2="420" y2="595"/>
-        </g>
-      </g>
-      <!-- Fabric texture stripes -->
-      <g opacity="0.15" fill="#FFFFFF">
-        <rect x="20" y="20" width="8" height="710" rx="2"/>
-        <rect x="572" y="20" width="8" height="710" rx="2"/>
-      </g>
-      <!-- Label -->
-      <text x="300" y="720" text-anchor="middle" font-family="serif" font-size="11" fill="#D4A853" opacity="0.6" letter-spacing="4">HANDCRAFTED ADIRE</text>
-    </svg>
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Authentic Adire
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        Hand-Dyed by Masters
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        Nationwide Delivery
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        WhatsApp Support
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-line" aria-hidden="true"></span>
-        <span class="hero-eyebrow-text">Authentic Yoruba Craft</span>
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-in">
+        <img src="https://images.pexels.com/photos/27787406/pexels-photo-27787406.jpeg?auto=compress&cs=tinysrgb&w=800" alt="African textile market display" loading="lazy">
       </div>
-      <h1>Wear the<br><em>Art of</em><br>Indigo.</h1>
-      <p class="hero-desc">
-        Every piece from The Adire Store Limited carries centuries of Yoruba mastery —
-        hand-dyed, hand-stitched, and made to be worn with pride.
-      </p>
-      <div class="hero-actions">
-        <a href="#products" class="btn-primary">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
-          Shop Collection
-        </a>
-        <a href="#about" class="btn-outline">Our Story</a>
-      </div>
-    </div>
-    <div class="hero-scroll" aria-hidden="true">
-      <span class="hero-scroll-line"></span>
-      <span class="hero-scroll-text">Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- ─── ABOUT ─── -->
-  <section class="about" id="about" aria-labelledby="about-title">
-    <div class="about-text fade-up">
-      <p class="section-eyebrow">Our Heritage</p>
-      <h2 class="section-title" id="about-title">
-        Woven in Tradition.<br>Worn with Pride.
-      </h2>
-      <p class="section-lead">
-        The Adire Store Limited was born from a deep reverence for the ancient Nigerian art of adire — the
-        hand-dyed indigo fabric that has dressed Yoruba royalty, market women, and modern tastemakers alike.
-        Each piece in our store is crafted by skilled artisans using traditional cassava-paste resist and natural indigo dye,
-        preserving a living heritage while making it accessible to the world.
-      </p>
-      <div class="about-stats">
-        <div class="fade-up">
-          <div class="about-stat-num">200+</div>
-          <div class="about-stat-label">Unique Designs</div>
-        </div>
-        <div class="fade-up">
-          <div class="about-stat-num">6+</div>
-          <div class="about-stat-label">Years of Craft</div>
-        </div>
-        <div class="fade-up">
-          <div class="about-stat-num">1,500+</div>
-          <div class="about-stat-label">Happy Customers</div>
-        </div>
-        <div class="fade-up">
-          <div class="about-stat-num">12</div>
-          <div class="about-stat-label">Artisan Partners</div>
-        </div>
-      </div>
-    </div>
-    <div class="about-visual fade-up" aria-hidden="true">
-      <div class="about-img-frame">
-        <div class="about-img-placeholder">
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-            <circle cx="40" cy="40" r="30" stroke="#D4A853" stroke-width="1.5" fill="none"/>
-            <circle cx="40" cy="40" r="15" stroke="#D4A853" stroke-width="1" fill="none"/>
-            <circle cx="40" cy="40" r="5" fill="#D4A853" opacity="0.6"/>
-            <line x1="10" y1="40" x2="70" y2="40" stroke="#D4A853" stroke-width="0.8" opacity="0.5"/>
-            <line x1="40" y1="10" x2="40" y2="70" stroke="#D4A853" stroke-width="0.8" opacity="0.5"/>
-          </svg>
-          <span>Brand Photo</span>
-        </div>
-      </div>
-      <div class="about-badge">
-        <div class="about-badge-num">Est.</div>
-        <div class="about-badge-text">2018</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── PRODUCTS ─── -->
-  <section class="products" id="products" aria-labelledby="products-title">
-    <div class="products-header">
-      <div>
-        <p class="section-eyebrow fade-up">Our Collection</p>
-        <h2 class="section-title fade-up" id="products-title">
-          Handcrafted<br>for the Bold.
-        </h2>
-      </div>
-      <div class="products-filter fade-up" role="group" aria-label="Filter products">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="agbada">Agbada</button>
-        <button class="filter-btn" data-filter="dress">Dresses</button>
-        <button class="filter-btn" data-filter="fabric">Fabric</button>
-        <button class="filter-btn" data-filter="kaftan">Kaftans</button>
-      </div>
-    </div>
-    <div class="products-grid" id="productsGrid" role="list">
-      <!-- Rendered by JS -->
-    </div>
-  </section>
-
-  <!-- ─── PROCESS ─── -->
-  <section class="process" id="process" aria-labelledby="process-title">
-    <div class="fade-up">
-      <p class="section-eyebrow">How We Create</p>
-      <h2 class="section-title" id="process-title">The Art Behind<br>Every Thread.</h2>
-      <p class="section-lead">
-        Each piece undergoes a meticulous multi-day process passed down through generations of Yoruba artisans.
-      </p>
-    </div>
-    <div class="process-grid">
-      <div class="process-step fade-up">
-        <div class="process-step-num" aria-hidden="true">01</div>
-        <div class="process-icon" aria-hidden="true">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#D4A853" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-          </svg>
-        </div>
-        <h3>Design & Pattern</h3>
-        <p>Our artisans sketch traditional Adire motifs — from the iconic Olokun waves to geometric eleko patterns — drawing from centuries of Yoruba visual language.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="process-step-num" aria-hidden="true">02</div>
-        <div class="process-icon" aria-hidden="true">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#D4A853" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-          </svg>
-        </div>
-        <h3>Resist Application</h3>
-        <p>Cassava starch paste or raffia stitching is applied by hand to create resist patterns on premium white cotton, defining where the indigo cannot penetrate.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="process-step-num" aria-hidden="true">03</div>
-        <div class="process-icon" aria-hidden="true">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#D4A853" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-          </svg>
-        </div>
-        <h3>Indigo Dyeing</h3>
-        <p>The fabric is submerged in natural indigo vats multiple times to build depth of colour — a process that can take three to five days to achieve the signature Adire hue.</p>
-      </div>
-      <div class="process-step fade-up">
-        <div class="process-step-num" aria-hidden="true">04</div>
-        <div class="process-icon" aria-hidden="true">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#D4A853" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-          </svg>
-        </div>
-        <h3>Finish & Style</h3>
-        <p>Each garment is washed, sun-dried, and expertly tailored. Our quality team inspects every piece before it bears The Adire Store name and ships to you.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TESTIMONIALS ─── -->
-  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
-    <div class="fade-up" style="text-align:center; margin-bottom: 0;">
-      <p class="section-eyebrow" style="text-align:center;">Customer Stories</p>
-      <h2 class="section-title" id="testimonials-title" style="text-align:center; max-width:100%;">What Our Customers Say</h2>
-      <p class="section-lead" style="margin: 0 auto;">Real stories from people wearing real craft.</p>
-    </div>
-    <div class="testimonials-grid" id="testimonialsGrid">
-      <!-- Rendered by JS -->
-    </div>
-  </section>
-
-  <!-- ─── INSTAGRAM BAND ─── -->
-  <section class="insta-band" aria-label="Social media">
-    <p class="section-eyebrow fade-up">Follow Our Journey</p>
-    <h2 class="section-title fade-up" style="text-align:center; max-width:600px; margin: 0 auto 1rem;">Style Worth Sharing</h2>
-    <p class="section-lead fade-up">
-      Tag us in your Adire looks and join a growing community of people embracing Nigerian artisan fashion.
-    </p>
-    <a href="https://instagram.com/theadirestore" target="_blank" rel="noopener" class="insta-handle fade-up">@theadirestore</a>
-    <div class="fade-up">
-      <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Chat Us on WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <!-- ─── CTA BANNER ─── -->
-  <section class="cta-banner" aria-label="Call to action">
-    <div class="fade-up">
-      <h2>Ready to wear <em>something timeless?</em></h2>
-    </div>
-    <div class="cta-banner-actions fade-up">
-      <a href="#products" class="btn-white">Shop Now</a>
-      <a href="https://wa.me/2348000000000?text=Hello%20The%20Adire%20Store%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" class="btn-outline-white">WhatsApp Us</a>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">The Adire Store</div>
-        <div class="footer-brand-sub">Limited</div>
-        <p class="footer-tagline">
-          Celebrating the art and craft of authentic Nigerian adire — handwoven stories in indigo and gold.
-          Every piece is made with love, dyed with tradition.
-        </p>
-        <div class="footer-social">
-          <a href="https://instagram.com/theadirestore" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="https://facebook.com/theadirestore" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Quick Links</div>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#products">Shop Collection</a></li>
-          <li><a href="#about">Our Story</a></li>
-          <li><a href="#process">Our Craft</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Categories</div>
-        <ul>
-          <li><a href="#products">Agbada Sets</a></li>
-          <li><a href="#products">Adire Dresses</a></li>
-          <li><a href="#products">Kaftans</a></li>
-          <li><a href="#products">Raw Fabric</a></li>
-          <li><a href="#products">Accessories</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
-        <ul>
-          <li><a href="https://wa.me/2348000000000" target="_blank" rel="noopener">WhatsApp Us</a></li>
-          <li><a href="mailto:hello@theadirestore.com">Email Us</a></li>
-          <li><a href="https://instagram.com/theadirestore" target="_blank" rel="noopener">Instagram DM</a></li>
-          <li><a href="#" onclick="return false;">Nigeria · Worldwide Shipping</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 The Adire Store Limited. All rights reserved.</p>
-      <p>Made with ♥ in Nigeria · <a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
-    </div>
-  </footer>
-
-  <!-- ─── PRODUCT MODAL ─── -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalName">
-    <div class="modal" id="modal">
-      <div class="modal-image">
-        <div class="modal-image-inner" id="modalImage"></div>
-      </div>
-      <div class="modal-details">
-        <button class="modal-close" id="modalClose" aria-label="Close product details">✕</button>
-        <div class="modal-category" id="modalCategory"></div>
-        <h2 class="modal-name" id="modalName"></h2>
-        <div class="modal-sku" id="modalSku"></div>
-        <div class="modal-price" id="modalPrice"></div>
-        <p class="modal-desc" id="modalDesc"></p>
-        <div class="modal-tags" id="modalTags"></div>
-        <div class="modal-cta">
-          <a id="modalWhatsApp" href="#" target="_blank" rel="noopener" class="modal-whatsapp">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Order Now on WhatsApp
-          </a>
-          <button class="modal-enquire" id="modalEnquire">
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            Ask a Question
-          </button>
+      <div class="fade-in">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="section-title">Born From Indigo,<br>Built With Purpose</h2>
+        <p style="color:var(--gray-700);line-height:1.8;margin:1rem 0">The Adire Store was founded to preserve and celebrate the ancient Yorùbá art of resist-dyeing. Every garment carries centuries of cultural heritage — from the cassava paste (eleko) resist patterns to the natural indigo dye that gives each piece its signature deep blue.</p>
+        <p style="color:var(--gray-500);line-height:1.8;margin-bottom:1.5rem">We work directly with artisan communities in Abeokuta and Ibadan, ensuring fair wages and keeping these traditional techniques alive for future generations.</p>
+        <div class="about-stats">
+          <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Happy Customers</div></div>
+          <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Artisan Partners</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Hand-Dyed</div></div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ─── WHATSAPP FLOAT ─── -->
-  <a href="https://wa.me/2348000000000?text=Hello%20The%20Adire%20Store%2C%20I%27d%20like%20to%20browse%20your%20collection."
-     target="_blank" rel="noopener"
-     class="whatsapp-float"
-     aria-label="Chat with us on WhatsApp">
-    <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+<!-- Featured Products -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:1.5rem" class="fade-in">
+      <span class="eyebrow">The Collection</span>
+      <h2 class="section-title">Featured Pieces</h2>
+      <p class="section-sub" style="margin:0.5rem auto">Each piece is one of a kind, hand-dyed and crafted to order.</p>
+    </div>
+    <div class="filter-bar fade-in" id="filterBar">
+      <button class="filter-btn active" data-cat="all">All</button>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem" class="fade-in">
+      <a href="catalogue.html" class="btn btn-secondary">View All Items in Store →</a>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // ─── DATA ───
-    const PHONE = '2348000000000'; // Update with your real WhatsApp number
+<!-- Process -->
+<section class="process" id="process">
+  <div class="container">
+    <div style="text-align:center" class="fade-in">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="section-title">From Our Hands to Yours</h2>
+      <p class="section-sub" style="margin:0.5rem auto">A simple four-step journey to owning your own piece of heritage.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-in">
+        <div class="process-num">01</div>
+        <h4>Browse & Choose</h4>
+        <p>Explore our curated collection of authentic Adire pieces. Each item is photographed to show its unique pattern.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">02</div>
+        <h4>Order via WhatsApp</h4>
+        <p>Tap the order button and you'll be connected to us on WhatsApp with your item pre-filled. Easy and personal.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">03</div>
+        <h4>Crafted for You</h4>
+        <p>Your piece is hand-dyed and tailored to your measurements by our artisan partners. Made-to-order takes 5–10 days.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">04</div>
+        <h4>Delivered Nationwide</h4>
+        <p>We ship across Nigeria. Track your order and receive it at your doorstep, packaged with care.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const products = [
-      {
-        sku: 'ADS-001',
-        name: 'Royal Olokun Agbada',
-        category: 'agbada',
-        categoryLabel: 'Agbada Set',
-        badge: 'Bestseller',
-        badgeType: '',
-        price: '₦85,000',
-        shortDesc: 'Full three-piece set. Deep indigo eleko pattern with gold embroidery trim.',
-        description: 'The Royal Olokun Agbada is a masterwork of traditional Yoruba textile art. Dyed using the authentic eleko (cassava paste) resist method, this three-piece set — robe, inner shirt, and trousers — features the iconic Olokun wave pattern symbolising abundance and the deep sea. Finished with hand-stitched gold embroidery at the neckline and cuffs. Perfect for owambe, weddings, and cultural ceremonies.',
-        tags: ['3-Piece Set', 'Hand-Dyed', 'Natural Indigo', 'Gold Embroidery', 'Made to Order'],
-        bg: 'linear-gradient(145deg, #1B2A6B 0%, #2D4499 100%)',
-        patternColor: '#D4A853',
-        pattern: 'waves',
-      },
-      {
-        sku: 'ADS-002',
-        name: 'Ìyá Ilẹ̀ Wrap Dress',
-        category: 'dress',
-        categoryLabel: 'Dress',
-        badge: 'New',
-        badgeType: 'new',
-        price: '₦42,000',
-        shortDesc: 'Wrap silhouette in double-dye indigo. Adjustable tie waist, midi length.',
-        description: 'The Ìyá Ilẹ̀ Wrap Dress honours the strength and elegance of the Yoruba woman. Hand-dyed twice for a deeper, richer navy-indigo shade, the dress features bold circular motifs and a flowing wrap silhouette that flatters every figure. The adjustable tie waist and midi-length hem make it equally at home at a beach wedding or a city dinner. 100% breathable cotton.',
-        tags: ['Midi Length', 'Double-Dyed', 'Wrap Silhouette', '100% Cotton', 'Sizes XS–3XL'],
-        bg: 'linear-gradient(145deg, #0F1A4A 0%, #1B2A6B 100%)',
-        patternColor: '#C4E0FF',
-        pattern: 'circles',
-      },
-      {
-        sku: 'ADS-003',
-        name: 'Ẹlẹkọ Kaftan',
-        category: 'kaftan',
-        categoryLabel: 'Kaftan',
-        badge: '',
-        badgeType: '',
-        price: '₦38,000',
-        shortDesc: 'Relaxed luxury kaftan. Geometric eleko resist-dye on premium cotton voile.',
-        description: 'The Ẹlẹkọ Kaftan brings the meditative geometry of traditional eleko (cassava paste) patterns into a modern, relaxed silhouette. Cut from premium cotton voile for ultimate breathability in Nigeria\'s warm climate, this kaftan drapes beautifully and flows with movement. The cassava-paste resist process creates crisp white geometric shapes that pop against the deep indigo ground. Side pockets included.',
-        tags: ['Cotton Voile', 'Eleko Pattern', 'Side Pockets', 'Unisex Cut', 'Breathable'],
-        bg: 'linear-gradient(145deg, #152054 0%, #253A7A 100%)',
-        patternColor: '#E8C47A',
-        pattern: 'geometric',
-      },
-      {
-        sku: 'ADS-004',
-        name: 'Adire Eleko Fabric Bolt',
-        category: 'fabric',
-        categoryLabel: 'Raw Fabric',
-        badge: 'Popular',
-        badgeType: '',
-        price: '₦18,000',
-        shortDesc: 'Authentic 6-yard bolt of hand-dyed eleko fabric. Perfect for custom tailoring.',
-        description: 'For those who want the craft of Adire in their own hands, our 6-yard Adire Eleko fabric bolt is the ideal canvas. Each bolt is uniquely hand-dyed — no two are identical — using the traditional cassava paste (eleko) resist method. The result is a deeply satisfying indigo ground with bright white geometric patterns. Works beautifully for women\'s dresses, agbada, home decor, and accessories. Sold per bolt.',
-        tags: ['6-Yard Bolt', 'Hand-Dyed', 'Unique Pattern', 'Tailoring Ready', 'Natural Indigo'],
-        bg: 'linear-gradient(145deg, #1D3060 0%, #2A4590 100%)',
-        patternColor: '#FFFFFF',
-        pattern: 'stripes',
-      },
-      {
-        sku: 'ADS-005',
-        name: 'Dáàdáà Shift Dress',
-        category: 'dress',
-        categoryLabel: 'Dress',
-        badge: 'Limited',
-        badgeType: '',
-        price: '₦36,000',
-        shortDesc: 'Clean-line shift silhouette with bold onijogi (tie-dye) swirl pattern.',
-        description: 'The Dáàdáà Shift Dress is for the woman who lets her fabric do the talking. Cut in a structured, knee-length shift silhouette from thick-weave cotton, it features a bold onijogi (tie-dye) swirl pattern — the Adire variety made by tying fabric sections tightly before dyeing, creating dramatic circular gradient blooms in cobalt and midnight blue. Available in sizes XS to 3XL. A statement piece for any occasion.',
-        tags: ['Knee Length', 'Onijogi Pattern', 'Structured Fit', 'Sizes XS–3XL', 'Limited Run'],
-        bg: 'linear-gradient(145deg, #112048 0%, #1E3370 100%)',
-        patternColor: '#D4A853',
-        pattern: 'swirls',
-      },
-      {
-        sku: 'ADS-006',
-        name: 'Ògún Sen Ankara Kaftan',
-        category: 'kaftan',
-        categoryLabel: 'Kaftan',
-        badge: 'New',
-        badgeType: 'new',
-        price: '₦44,000',
-        shortDesc: 'Embroidered neckline kaftan. Classic adire base with Ankara accent panels.',
-        description: 'The Ògún Sen Kaftan is our most contemporary design — a fusion of traditional Adire indigo base with vibrant Ankara accent panels at the collar, pocket trim, and hem. The result is a garment that bridges heritage and modern Nigerian fashion. Embroidered Yoruba motifs at the neckline add an extra layer of craft. The kaftan falls just below the knee and is cut generously for comfort and movement.',
-        tags: ['Fusion Design', 'Ankara Panels', 'Embroidered', 'Knee Length', 'All Sizes'],
-        bg: 'linear-gradient(145deg, #0D1840 0%, #1A2A60 100%)',
-        patternColor: '#C4541A',
-        pattern: 'chevron',
-      },
-      {
-        sku: 'ADS-007',
-        name: 'Àgọ̀ Àṣà Senator Set',
-        category: 'agbada',
-        categoryLabel: 'Senator Set',
-        badge: 'Bestseller',
-        badgeType: '',
-        price: '₦58,000',
-        shortDesc: '2-piece senator outfit in crisp adire on white cotton. Formal & sharp.',
-        description: 'The Àgọ̀ Àṣà Senator Set offers a more formal, streamlined take on Nigerian traditional wear. A two-piece set — long-sleeved senator shirt and matching straight-cut trousers — crafted from fine cotton with a subtle adire pattern in deep indigo on white. The understated pattern gives this set a versatility that takes it from the office to the occasion. Available in custom sizing with a 7-day lead time.',
-        tags: ['2-Piece Set', 'Senator Style', 'Custom Sizing', 'Office-Ready', '7-Day Lead Time'],
-        bg: 'linear-gradient(145deg, #F9F4EC 0%, #EDE5D8 100%)',
-        patternColor: '#1B2A6B',
-        pattern: 'subtle',
-        darkText: true,
-      },
-      {
-        sku: 'ADS-008',
-        name: 'Ọmọ Olúwa Mini Dress',
-        category: 'dress',
-        categoryLabel: 'Dress',
-        badge: '',
-        badgeType: '',
-        price: '₦28,000',
-        shortDesc: 'Playful mini in triple-dye cobalt. Puffed sleeves, round neck, relaxed fit.',
-        description: 'The Ọmọ Olúwa Mini Dress is unapologetically bold. Triple-dyed to achieve an intense, saturated cobalt-indigo shade, this above-the-knee dress features puffed short sleeves and a relaxed round neckline. The fabric carries a random onijogi texture from the binding process, meaning every dress is entirely unique. For the woman who wears her heritage without compromise.',
-        tags: ['Mini Length', 'Triple-Dyed', 'Puffed Sleeves', 'Unique Pattern', 'One of a Kind'],
-        bg: 'linear-gradient(145deg, #1428A0 0%, #1B2A6B 100%)',
-        patternColor: '#D4A853',
-        pattern: 'random',
-      },
-    ];
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <div style="text-align:center" class="fade-in">
+      <span class="eyebrow">What People Say</span>
+      <h2 class="section-title">Loved by Our Community</h2>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid"></div>
+  </div>
+</section>
 
-    const testimonials = [
-      {
-        text: "I wore the Royal Olokun Agbada to my brother's wedding and I was absolutely the best-dressed man at the event. The quality of the dye, the embroidery — everything was perfect. The Adire Store is on another level.",
-        name: 'Adewale O.',
-        location: 'Lagos, Nigeria',
-        stars: 5,
-        avatarBg: '#1B2A6B',
-        initials: 'AO',
-      },
-      {
-        text: "I live in London and ordering Nigerian traditional wear is always a gamble. Not with The Adire Store. The fabric arrived beautifully packaged, the pattern was more stunning in person, and it fit perfectly with their sizing guide. Will be ordering again!",
-        name: 'Funmi A.',
-        location: 'London, UK',
-        stars: 5,
-        avatarBg: '#C4541A',
-        initials: 'FA',
-      },
-      {
-        text: "Ordered the Ìyá Ilẹ̀ Wrap Dress for my graduation photos. People kept stopping me to ask where I got it. The double-dye indigo is so rich — photos don't even do it justice. Stunning work.",
-        name: 'Chiamaka N.',
-        location: 'Abuja, Nigeria',
-        stars: 5,
-        avatarBg: '#2D4499',
-        initials: 'CN',
-      },
-      {
-        text: "Bought 3 bolts of the Eleko fabric for a capsule collection I was designing. Exceptional quality, each bolt genuinely unique. The response on WhatsApp was fast and professional. A supplier I'll keep coming back to.",
-        name: 'Tobi F.',
-        location: 'Lagos, Nigeria',
-        stars: 5,
-        avatarBg: '#D4A853',
-        initials: 'TF',
-      },
-      {
-        text: "My mother requested the Ẹlẹkọ Kaftan as a birthday gift. When she opened it she cried happy tears. She said it reminded her of the fabric her own mother used to make. That kind of connection to our heritage is priceless.",
-        name: 'Sola A.',
-        location: 'Port Harcourt, Nigeria',
-        stars: 5,
-        avatarBg: '#8B4513',
-        initials: 'SA',
-      },
-      {
-        text: "The Senator Set was made to measure and delivered in exactly 7 days as promised. Wore it for a board presentation — I got more compliments than I ever expected for a work outfit. The craftsmanship is exceptional.",
-        name: 'Emeka C.',
-        location: 'Enugu, Nigeria',
-        stars: 5,
-        avatarBg: '#1B2A6B',
-        initials: 'EC',
-      },
-    ];
+<!-- Social Band -->
+<div class="social-band">
+  <div class="container">
+    <h3>Follow Our Journey</h3>
+    <p>See behind the scenes, new drops & styling tips — <a href="https://instagram.com/theadirestore" target="_blank" rel="noopener">@theadirestore</a></p>
+  </div>
+</div>
 
-    // ─── RENDER PRODUCTS ───
-    function drawPattern(pattern, patternColor, darkBg = true) {
-      const c = patternColor;
-      const op = darkBg ? '0.35' : '0.2';
-      if (pattern === 'waves') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          <path d="M0 80 Q75 40 150 80 Q225 120 300 80 L300 380 L0 380Z" fill="${c}" opacity="${op}"/>
-          <path d="M0 140 Q75 100 150 140 Q225 180 300 140 L300 380 L0 380Z" fill="${c}" opacity="${op}"/>
-          <path d="M0 200 Q75 160 150 200 Q225 240 300 200 L300 380 L0 380Z" fill="${c}" opacity="${op}"/>
-          <circle cx="150" cy="80" r="8" fill="${c}" opacity="0.6"/>
-          <circle cx="150" cy="140" r="6" fill="${c}" opacity="0.5"/>
-          <circle cx="75" cy="110" r="4" fill="${c}" opacity="0.4"/>
-          <circle cx="225" cy="110" r="4" fill="${c}" opacity="0.4"/>
-        </svg>`;
-      if (pattern === 'circles') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          <circle cx="150" cy="190" r="120" stroke="${c}" stroke-width="2" fill="none" opacity="0.4"/>
-          <circle cx="150" cy="190" r="80" stroke="${c}" stroke-width="1.5" fill="none" opacity="0.5"/>
-          <circle cx="150" cy="190" r="40" stroke="${c}" stroke-width="1.5" fill="none" opacity="0.6"/>
-          <circle cx="150" cy="190" r="12" fill="${c}" opacity="0.6"/>
-          <line x1="30" y1="190" x2="270" y2="190" stroke="${c}" stroke-width="1" opacity="0.3"/>
-          <line x1="150" y1="70" x2="150" y2="310" stroke="${c}" stroke-width="1" opacity="0.3"/>
-          <line x1="65" y1="105" x2="235" y2="275" stroke="${c}" stroke-width="1" opacity="0.25"/>
-          <line x1="235" y1="105" x2="65" y2="275" stroke="${c}" stroke-width="1" opacity="0.25"/>
-        </svg>`;
-      if (pattern === 'geometric') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          <rect x="60" y="100" width="180" height="180" fill="none" stroke="${c}" stroke-width="1.5" opacity="0.4" transform="rotate(45 150 190)"/>
-          <rect x="80" y="120" width="140" height="140" fill="none" stroke="${c}" stroke-width="1" opacity="0.5" transform="rotate(45 150 190)"/>
-          <rect x="100" y="140" width="100" height="100" fill="none" stroke="${c}" stroke-width="1" opacity="0.6" transform="rotate(45 150 190)"/>
-          <circle cx="150" cy="190" r="8" fill="${c}" opacity="0.7"/>
-          <circle cx="150" cy="80" r="5" fill="${c}" opacity="0.5"/>
-          <circle cx="150" cy="300" r="5" fill="${c}" opacity="0.5"/>
-          <circle cx="40" cy="190" r="5" fill="${c}" opacity="0.5"/>
-          <circle cx="260" cy="190" r="5" fill="${c}" opacity="0.5"/>
-        </svg>`;
-      if (pattern === 'stripes') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          ${Array.from({length:12}, (_,i) => `<line x1="${i*30}" y1="0" x2="${i*30+380*0.5}" y2="380" stroke="${c}" stroke-width="${i%3===0?2:1}" opacity="${i%3===0?0.4:0.2}"/>`).join('')}
-          <rect x="40" y="60" width="220" height="260" fill="none" stroke="${c}" stroke-width="2" opacity="0.3"/>
-        </svg>`;
-      if (pattern === 'swirls') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          <path d="M150 190 Q180 130 150 90 Q120 50 80 90 Q40 130 80 190 Q120 250 150 190Z" fill="${c}" opacity="0.25"/>
-          <path d="M150 190 Q220 160 240 110 Q260 60 210 50 Q160 40 130 90 Q100 140 150 190Z" fill="${c}" opacity="0.2"/>
-          <circle cx="150" cy="190" r="15" fill="${c}" opacity="0.5"/>
-          <circle cx="150" cy="190" r="5" fill="${c}" opacity="0.8"/>
-          <circle cx="80" cy="140" r="10" fill="${c}" opacity="0.3"/>
-          <circle cx="210" cy="100" r="8" fill="${c}" opacity="0.3"/>
-        </svg>`;
-      if (pattern === 'subtle') return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          ${Array.from({length:8}, (_,i) => `<circle cx="${50 + (i%4)*70}" cy="${80 + Math.floor(i/4)*150}" r="40" fill="none" stroke="${c}" stroke-width="1" opacity="0.15"/>`).join('')}
-          <line x1="0" y1="190" x2="300" y2="190" stroke="${c}" stroke-width="1" opacity="0.1"/>
-        </svg>`;
-      return `
-        <svg width="100%" height="100%" viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice">
-          ${Array.from({length:6},(_,i)=>`<circle cx="${Math.sin(i)*80+150}" cy="${Math.cos(i)*80+190}" r="${20+i*8}" fill="none" stroke="${c}" stroke-width="1" opacity="${0.2+i*0.05}"/>`).join('')}
-          <circle cx="150" cy="190" r="10" fill="${c}" opacity="0.6"/>
-        </svg>`;
-    }
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <h2>Ready to Own a Piece of Heritage?</h2>
+    <p>Browse our full collection or send us a message — we're always happy to help.</p>
+    <div class="cta-btns">
+      <a href="catalogue.html" class="btn btn-white btn-lg">Shop the Collection</a>
+      <a id="ctaWhatsApp" href="#" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.29 0-4.404-.763-6.102-2.048l-.426-.324-2.628.881.881-2.628-.324-.426A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
 
-    function renderProducts(filter = 'all') {
-      const grid = document.getElementById('productsGrid');
-      const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-      grid.innerHTML = filtered.map(p => `
-        <article class="product-card fade-up" role="listitem" onclick="openModal('${p.sku}')" tabindex="0" aria-label="${p.name}" onkeydown="if(event.key==='Enter')openModal('${p.sku}')">
-          <div class="product-img">
-            <div class="product-img-inner" style="background:${p.bg};">
-              ${drawPattern(p.pattern, p.patternColor, !p.darkText)}
-              ${p.badge ? `<div class="product-badge ${p.badgeType}">${p.badge}</div>` : ''}
-              <div class="product-sku-tag">${p.sku}</div>
-              <div class="product-quick-view">View Details</div>
-            </div>
-          </div>
-          <div class="product-info">
-            <div class="product-category">${p.categoryLabel}</div>
-            <div class="product-name">${p.name}</div>
-            <div class="product-desc-short">${p.shortDesc}</div>
-            <div class="product-footer">
-              <div class="product-price">${p.price}<span>NGN</span></div>
-              <a href="${whatsAppLink(p)}" target="_blank" rel="noopener" class="product-order-btn" onclick="event.stopPropagation()" aria-label="Order ${p.name} on WhatsApp">
-                <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Order Now
-              </a>
-            </div>
-          </div>
-        </article>
-      `).join('');
-      observeFadeUps();
-    }
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>The Adire Store</h3>
+        <p>Preserving the ancient Yorùbá art of resist-dyeing. Every piece is hand-crafted by master artisans, ensuring no two garments are ever the same.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="catalogue.html?cat=agbada">Agbada Sets</a>
+        <a href="catalogue.html?cat=dress">Dresses</a>
+        <a href="catalogue.html?cat=kaftan">Kaftans</a>
+        <a href="catalogue.html?cat=fabric">Raw Fabric</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">Our Story</a>
+        <a href="#process">How It Works</a>
+        <a href="#testimonials">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://instagram.com/theadirestore" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/theadirestore" target="_blank" rel="noopener">Facebook</a>
+        <a id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 The Adire Store Limited. All rights reserved.</span>
+      <span>Made with ♥ in Nigeria</span>
+    </div>
+  </div>
+</footer>
 
-    function whatsAppLink(p) {
-      const msg = encodeURIComponent(`Hello The Adire Store! 👋\n\nI'd like to order the following item:\n\n*${p.name}*\nSKU: ${p.sku}\nPrice: ${p.price}\n\nPlease let me know sizes available and payment details. Thank you!`);
-      return `https://wa.me/${PHONE}?text=${msg}`;
-    }
+<!-- WhatsApp Float -->
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.29 0-4.404-.763-6.102-2.048l-.426-.324-2.628.881.881-2.628-.324-.426A9.935 9.935 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+</a>
 
-    // ─── MODAL ───
-    function openModal(sku) {
-      const p = products.find(x => x.sku === sku);
-      if (!p) return;
-      document.getElementById('modalImage').style.cssText = `background:${p.bg}; display:flex; align-items:center; justify-content:center;`;
-      document.getElementById('modalImage').innerHTML = drawPattern(p.pattern, p.patternColor, !p.darkText);
-      document.getElementById('modalCategory').textContent = p.categoryLabel;
-      document.getElementById('modalName').textContent = p.name;
-      document.getElementById('modalSku').textContent = `SKU: ${p.sku}`;
-      document.getElementById('modalPrice').textContent = p.price;
-      document.getElementById('modalDesc').textContent = p.description;
-      document.getElementById('modalTags').innerHTML = p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
-      document.getElementById('modalWhatsApp').href = whatsAppLink(p);
-      document.getElementById('modalEnquire').onclick = () => {
-        const msg = encodeURIComponent(`Hello The Adire Store! 👋\n\nI have a question about:\n\n*${p.name}*\nSKU: ${p.sku}\n\nMy question: `);
-        window.open(`https://wa.me/${PHONE}?text=${msg}`, '_blank');
-      };
-      document.getElementById('modalOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
+<!-- Product Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal"></div>
+</div>
 
+<!-- Scripts -->
+<script src="js/security.js" data-adire-safe></script>
+<script src="js/store.js" data-adire-safe></script>
+<script src="js/analytics.js" data-adire-safe></script>
+<script data-adire-safe>
+(function(){
+  'use strict';
+
+  // --- Nav scroll ---
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+  // --- Mobile toggle ---
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // --- WhatsApp links ---
+  const waLink = AdireStore.whatsAppGeneral();
+  document.getElementById('waFloat').href = waLink;
+  document.getElementById('ctaWhatsApp').href = waLink;
+  document.getElementById('footerWhatsApp').href = waLink;
+  document.getElementById('waFloat').addEventListener('click', () => AdireAnalytics.whatsAppFloatClicked());
+
+  // --- Filter bar ---
+  const filterBar = document.getElementById('filterBar');
+  const cats = AdireStore.getCategories();
+  cats.forEach((label, key) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.cat = key;
+    btn.textContent = label;
+    filterBar.appendChild(btn);
+  });
+
+  let activeFilter = 'all';
+  filterBar.addEventListener('click', e => {
+    if (!e.target.classList.contains('filter-btn')) return;
+    activeFilter = e.target.dataset.cat;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === activeFilter));
+    renderProducts();
+    AdireAnalytics.filterUsed(activeFilter);
+  });
+
+  // --- Render products ---
+  const grid = document.getElementById('productsGrid');
+
+  function renderProducts() {
+    const items = activeFilter === 'all' ? AdireStore.getFeatured() : AdireStore.getByCategory(activeFilter).filter(p => p.featured);
+    grid.innerHTML = items.length ? items.map(productCardHTML).join('') : '<p style="text-align:center;color:var(--gray-500);grid-column:1/-1;padding:2rem">No featured items in this category. <a href="catalogue.html" style="color:var(--terracotta);font-weight:600">Browse full catalogue →</a></p>';
+  }
+
+  function productCardHTML(p) {
+    const badgeClass = p.badge === 'Limited' ? 'limited' : p.badge === 'New' ? 'new' : '';
+    return `
+    <div class="product-card fade-in" data-sku="${safeText(p.sku)}">
+      <div class="product-card-img">
+        ${p.badge ? `<span class="product-badge ${badgeClass}">${safeText(p.badge)}</span>` : ''}
+        <img src="${safeText(p.image)}" alt="${safeText(p.name)}" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <div class="product-card-cat">${safeText(p.categoryLabel)}</div>
+        <div class="product-card-name">${safeText(p.name)}</div>
+        <div class="product-card-desc">${safeText(p.shortDesc)}</div>
+        <div class="product-card-footer">
+          <span class="product-card-price">${AdireStore.formatPrice(p.price)}</span>
+          <span class="product-card-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  renderProducts();
+
+  // --- Product modal ---
+  const overlay = document.getElementById('modalOverlay');
+  const modal = document.getElementById('modal');
+
+  grid.addEventListener('click', e => {
+    const card = e.target.closest('.product-card');
+    if (!card) return;
+    const p = AdireStore.getBySku(card.dataset.sku);
+    if (!p) return;
+    openModal(p);
+  });
+
+  function openModal(p) {
+    AdireAnalytics.productViewed(p);
+    modal.innerHTML = `
+      <div class="modal-img"><img src="${safeText(p.image)}" alt="${safeText(p.name)}"></div>
+      <div class="modal-body">
+        <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+        <div class="modal-cat">${safeText(p.categoryLabel)}</div>
+        <h3 class="modal-name">${safeText(p.name)}</h3>
+        <div class="modal-price">${AdireStore.formatPrice(p.price)}</div>
+        <p class="modal-desc">${safeText(p.description)}</p>
+        <div class="modal-tags">${p.tags.map(t => `<span class="modal-tag">${safeText(t)}</span>`).join('')}</div>
+        <label style="font-size:0.75rem;font-weight:600;color:var(--gray-700);margin-bottom:0.35rem;display:block">SELECT SIZE</label>
+        <div class="modal-sizes">${p.sizes.map((s,i) => `<button class="size-btn${i===0?' selected':''}" data-size="${safeText(s)}">${safeText(s)}</button>`).join('')}</div>
+        <a class="btn btn-whatsapp btn-lg" id="modalOrder" href="${AdireStore.whatsAppLink(p, p.sizes[0])}" target="_blank" rel="noopener" style="width:100%">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          Order via WhatsApp
+        </a>
+      </div>`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Close
     document.getElementById('modalClose').addEventListener('click', closeModal);
-    document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-    function closeModal() {
-      document.getElementById('modalOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-    }
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
-    // ─── FILTER ───
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    // Sizes
+    let selectedSize = p.sizes[0];
+    modal.querySelectorAll('.size-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderProducts(btn.dataset.filter);
+        modal.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSize = btn.dataset.size;
+        document.getElementById('modalOrder').href = AdireStore.whatsAppLink(p, selectedSize);
       });
     });
 
-    // ─── TESTIMONIALS ───
-    function renderTestimonials() {
-      document.getElementById('testimonialsGrid').innerHTML = testimonials.map(t => `
-        <div class="testimonial-card fade-up">
-          <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-          <div class="testimonial-stars" aria-label="${t.stars} stars">★★★★★</div>
-          <p class="testimonial-text">${t.text}</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" style="background:${t.avatarBg}" aria-hidden="true">${t.initials}</div>
-            <div>
-              <div class="testimonial-author-name">${t.name}</div>
-              <div class="testimonial-author-loc">${t.location}</div>
-            </div>
-          </div>
-        </div>
-      `).join('');
-    }
+    // Track order click
+    document.getElementById('modalOrder').addEventListener('click', () => AdireAnalytics.orderInitiated(p, selectedSize));
+  }
 
-    // ─── NAV SCROLL ───
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // ─── HAMBURGER ───
-    document.getElementById('hamburger').addEventListener('click', () => {
-      const open = nav.classList.toggle('menu-open');
-      document.getElementById('hamburger').setAttribute('aria-expanded', open);
-    });
-    document.getElementById('navLinks').querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => nav.classList.remove('menu-open'));
-    });
+  // --- Testimonials ---
+  const testimonials = [
+    { text: "The quality of the agbada I ordered was beyond my expectations. The indigo is so rich and the embroidery detail is stunning. Wore it to my brother's wedding and got compliments all day.", author: "Olumide A.", loc: "Lagos", initials: "OA" },
+    { text: "Finally found a store that does authentic adire. Not the mass-produced stuff you see everywhere. My wrap dress is genuinely one of a kind. The fabric feels incredible.", author: "Ngozi E.", loc: "Abuja", initials: "NE" },
+    { text: "Ordered raw fabric to take to my tailor and the quality is impeccable. The eleko resist pattern is crisp and the dye is deep, even after multiple washes. Will order again.", author: "Bimpe O.", loc: "Ibadan", initials: "BO" },
+    { text: "The WhatsApp ordering process is so easy. They were responsive, sent progress photos of my kaftan being made, and delivery was faster than expected. 10/10 experience.", author: "Chidi N.", loc: "Port Harcourt", initials: "CN" },
+    { text: "I bought matching outfits for my family reunion. Everyone was amazed at the craftsmanship. The Adire Store made us look like royalty. Already planning our next order.", author: "Funke D.", loc: "Abeokuta", initials: "FD" },
+    { text: "As someone in fashion, I appreciate the attention to detail. The fusion kaftan with ankara panels is genius — traditional meets contemporary perfectly. My clients love it.", author: "Tunde K.", loc: "Lagos", initials: "TK" }
+  ];
 
-    // ─── FADE UP OBSERVER ───
-    function observeFadeUps() {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.fade-up:not(.visible)').forEach(el => obs.observe(el));
-    }
+  const tGrid = document.getElementById('testimonialsGrid');
+  const star = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  tGrid.innerHTML = testimonials.map(t => `
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-stars">${star.repeat(5)}</div>
+      <p class="testimonial-text">"${safeText(t.text)}"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">${t.initials}</div>
+        <div><div class="testimonial-name">${safeText(t.author)}</div><div class="testimonial-loc">${safeText(t.loc)}</div></div>
+      </div>
+    </div>`).join('');
 
-    // ─── INIT ───
-    renderProducts();
-    renderTestimonials();
-    observeFadeUps();
-  </script>
+  // --- Intersection Observer for fade-in ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  function observeAll() { document.querySelectorAll('.fade-in').forEach(el => observer.observe(el)); }
+  observeAll();
+  // Re-observe after products render
+  setTimeout(observeAll, 100);
+
+  // --- Analytics ---
+  AdireAnalytics.pageView('Home');
+
+})();
+</script>
 </body>
 </html>

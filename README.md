@@ -1,114 +1,125 @@
-# The Adire Store Limited — Landing Page
+# The Adire Store Limited — Website v3
 
-A premium landing page for **The Adire Store Limited**, showcasing authentic Nigerian Adire clothing and fabric with WhatsApp ordering, product modals, and full SEO optimisation.
-
----
-
-## 🚀 Deploy to Vercel in 3 Steps
-
-### Step 1 — Push to GitHub
-
-```bash
-# Create a new repo on github.com, then:
-git init
-git add .
-git commit -m "Initial commit: The Adire Store landing page"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/adirestore.git
-git push -u origin main
-```
-
-### Step 2 — Import to Vercel
-
-1. Go to [vercel.com](https://vercel.com) and sign up / log in
-2. Click **"Add New Project"**
-3. Select **"Import Git Repository"** and connect your GitHub
-4. Choose the `adirestore` repository
-5. Click **"Deploy"** — no configuration needed, `vercel.json` handles everything
-
-### Step 3 — Add Custom Domain (Optional)
-
-1. In Vercel, go to your project → **Settings → Domains**
-2. Add `theadirestore.com` (or your domain)
-3. Update your DNS records as instructed by Vercel
+Premium e-commerce storefront for authentic Nigerian Adire clothing.  
+Static HTML/CSS/JS — no framework, no build step, deploys anywhere.
 
 ---
 
-## ✏️ Customise Before Deploying
-
-### 1. Update WhatsApp Number
-In `index.html`, find this line near the top of the `<script>` tag:
-```javascript
-const PHONE = '2348000000000'; // Update with your real WhatsApp number
-```
-Replace `2348000000000` with your actual WhatsApp number (include country code, no `+`).
-
-### 2. Update Product Prices & SKUs
-Find the `products` array in the `<script>` tag. Each product has:
-```javascript
-{
-  sku: 'ADS-001',       // unique identifier for WhatsApp messages
-  name: 'Product Name',
-  price: '₦85,000',    // update pricing
-  ...
-}
-```
-
-### 3. Add Real Product Photos
-Replace the SVG pattern placeholders by changing the `product-img-inner` section:
-```html
-<!-- In renderProducts(), change the background div to: -->
-<img src="your-photo.jpg" alt="Product Name" style="width:100%;height:100%;object-fit:cover"/>
-```
-
-### 4. Update Social Links
-Search for `theadirestore` and `2348000000000` in the HTML and replace with your real handles and number.
-
-### 5. Update SEO Meta Tags
-At the top of `index.html`, update:
-- `<title>` tag
-- `og:url` and `twitter:image` with your real domain
-- Schema.org `telephone` field
-
----
-
-## 📦 File Structure
+## File Structure
 
 ```
-adirestore/
-├── index.html      # Complete landing page (all-in-one)
-├── vercel.json     # Vercel deployment config
-└── README.md       # This file
+adirestore-v3/
+├── index.html              ← Landing page (hero, about, featured, testimonials)
+├── catalogue.html          ← Full store catalogue (search, filter, sort)
+├── store-admin-panel.html  ← Hidden admin panel (NOT linked publicly)
+├── css/
+│   └── styles.css          ← Master stylesheet
+├── js/
+│   ├── store.js            ← Product data store (localStorage + defaults)
+│   ├── security.js         ← Redirect/injection protection layer
+│   └── analytics.js        ← Amplitude event tracking
+├── vercel.json             ← Deployment config + security headers
+└── README.md               ← This file
 ```
 
 ---
 
-## ✨ Features
+## Before Going Live — Customize These
 
-- **8 Product cards** with category filtering (All / Agbada / Dresses / Fabric / Kaftans)
-- **Product detail modals** — click any card for full description, tags, and ordering
-- **WhatsApp ordering** — each item sends a pre-filled message with SKU, name, and price
-- **6 Customer testimonials** with star ratings
-- **Craft process section** — 4-step explainer
-- **Sticky navigation** with scroll effect
-- **Floating WhatsApp button** with pulse animation
-- **Full SEO** — meta tags, Open Graph, Twitter Card, JSON-LD structured data
-- **Responsive** — mobile, tablet, desktop
-- **Accessible** — ARIA labels, keyboard navigation, reduced motion support
-- **Fast** — single HTML file, no framework, Google Fonts only
+### 1. WhatsApp Number
+Open `js/store.js` and change line 6:
+```js
+const PHONE = '2348000000000'; // ← Your real WhatsApp number
+```
+
+### 2. Amplitude API Key
+Open `js/analytics.js` and change line 6:
+```js
+const AMPLITUDE_API_KEY = 'YOUR_AMPLITUDE_API_KEY'; // ← Your key
+```
+Get a free key at [amplitude.com](https://amplitude.com)
+
+### 3. Admin Panel Credentials
+Open `store-admin-panel.html` and change the credentials near the top of the script:
+```js
+const ADMIN_USER = 'adireadmin';    // ← Change this
+const ADMIN_PASS = 'adire2024!';    // ← Change this
+```
+
+### 4. Domain & Social Links
+Search and replace across all HTML files:
+- `theadirestore.com` → your real domain
+- `instagram.com/theadirestore` → your real Instagram
+- `facebook.com/theadirestore` → your real Facebook
 
 ---
 
-## 🎨 Brand Colours
+## Deployment
 
-| Name | Hex | Usage |
-|------|-----|-------|
-| Indigo | `#1B2A6B` | Primary brand, headings |
-| Indigo Deep | `#0F1A4A` | Hero background |
-| Terracotta | `#C4541A` | CTAs, accents |
-| Gold | `#D4A853` | Highlights, eyebrows |
-| Cream | `#F9F4EC` | Page background |
+### Vercel (Recommended)
+1. Push this folder to a GitHub repo
+2. Import the repo on [vercel.com](https://vercel.com)
+3. Deploy — that's it. `vercel.json` handles headers automatically.
+
+### Netlify
+1. Push to GitHub
+2. Import on [netlify.com](https://netlify.com)
+3. Set publish directory to the repo root
+
+### GitHub Pages
+1. Push to a GitHub repo
+2. Go to Settings → Pages → Deploy from branch
+3. Select main branch, root folder
+
+### Any Static Host
+Just upload all files. No build step needed.
 
 ---
 
-*The Adire Store Limited — Wear the Art of Indigo.*
+## Features
+
+- **Pexels Free Images** — All product images from pexels.com (free for commercial use)
+- **Responsive Design** — Mobile-first, works on all devices
+- **Product Data Store** — localStorage-backed, survives page refreshes
+- **Catalogue Page** — Search, category filters, sorting, deep-link via `?cat=`
+- **Admin Panel** — Hidden page for inventory management (add/edit/delete products)
+- **Amplitude Analytics** — Page views, product views, orders, searches, CTA clicks
+- **Security Layer** — Redirect protection, DOM injection blocking, CSP headers, input sanitization
+- **WhatsApp Ordering** — One-tap ordering with pre-filled messages
+- **SEO** — JSON-LD schema, Open Graph tags, semantic HTML, canonical URLs
+- **Animations** — Intersection Observer fade-ins, smooth scrolling, hover states
+
+---
+
+## Admin Panel Usage
+
+Access at: `yoursite.com/store-admin-panel` (not linked from any public page)
+
+Default login: `adireadmin` / `adire2024!` (CHANGE BEFORE DEPLOYING)
+
+From the admin panel you can:
+- View dashboard stats (total products, inventory value, featured count, stock)
+- Add new products with SKU, name, price, image URL, sizes, tags
+- Edit existing products
+- Toggle featured status
+- Delete products (with confirmation)
+- Reset to default 8 products
+
+Product changes are saved to localStorage and immediately reflected on the public site.
+
+---
+
+## Tech Stack
+
+- **HTML5** — Semantic markup, accessibility attributes
+- **CSS3** — Custom properties, grid, flexbox, clamp(), animations
+- **Vanilla JS** — No jQuery, no framework, zero dependencies
+- **Fonts** — Cormorant Garamond (display) + Inter (body) via Google Fonts
+- **Images** — Pexels.com (free, no attribution required)
+- **Analytics** — Amplitude Browser SDK
+
+---
+
+## License
+
+© 2024 The Adire Store Limited. All rights reserved.
