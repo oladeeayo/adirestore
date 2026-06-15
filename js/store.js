@@ -143,10 +143,10 @@
     _cache: null,
 
     getAll() {
-      if (this._cache) return this._cache;
+      if (Array.isArray(this._cache)) return this._cache;
       try {
         const s = localStorage.getItem(STORE_KEY);
-        if (s) { this._cache = JSON.parse(s); return this._cache; }
+        if (s) { const d = JSON.parse(s); if (Array.isArray(d) && d.length) { this._cache = d; return this._cache; } }
       } catch (e) { console.warn('Store read error', e); }
       this._cache = [...DEFAULT_PRODUCTS];
       return this._cache;
@@ -183,7 +183,10 @@
       if (i !== -1) { p[i] = { ...p[i], ...data }; this.save(p); return true; }
       return false;
     },
-    delete(sku) { this.save(this.getAll().filter(p => p.sku !== sku)); },
+    delete(sku) {
+      const remaining = this.getAll().filter(p => p.sku !== sku);
+      remaining.length ? this.save(remaining) : this.reset();
+    },
     reset() { localStorage.removeItem(STORE_KEY); this._cache = null; },
 
     formatPrice(n) { return '₦' + Number(n).toLocaleString('en-NG'); },
