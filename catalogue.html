@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.amplitude.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.pexels.com https://*.pexels.com data:; connect-src 'self' https://*.amplitude.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.pexels.com https://*.pexels.com data:;">
   <title>Shop All — The Adire Store Limited</title>
   <meta name="description" content="Browse our full collection of authentic hand-dyed Adire clothing. Agbada sets, dresses, kaftans, and raw fabric from Nigerian master artisans.">
   <meta property="og:title" content="Shop All — The Adire Store Limited">
@@ -142,107 +142,105 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/security.js" data-adire-safe></script>
 <script src="js/store.js" data-adire-safe></script>
-<script src="js/analytics.js" data-adire-safe></script>
 <script data-adire-safe>
 (function(){
   'use strict';
 
+  var entityMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' };
+  function safeText(str) { return String(str).replace(/[&<>"'\/]/g, function(s) { return entityMap[s]; }); }
+  function safeParam(key) {
+    var params = new URLSearchParams(window.location.search);
+    var val = params.get(key);
+    if (!val) return null;
+    return val.replace(/[<>"'`;(){}]/g, '');
+  }
+
   // --- WhatsApp links ---
-  const waLink = AdireStore.whatsAppGeneral();
+  var waLink = AdireStore.whatsAppGeneral();
   document.getElementById('waFloat').href = waLink;
   document.getElementById('ctaWhatsApp').href = waLink;
   document.getElementById('footerWhatsApp').href = waLink;
   document.getElementById('navWhatsApp').href = waLink;
-  document.getElementById('waFloat').addEventListener('click', () => AdireAnalytics.whatsAppFloatClicked());
 
   // --- Mobile nav ---
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+  [].forEach.call(links.querySelectorAll('a'), function(a) { a.addEventListener('click', function() { links.classList.remove('open'); }); });
 
   // --- Category filters ---
-  const catFilter = document.getElementById('catFilter');
-  const cats = AdireStore.getCategories();
-  cats.forEach((label, key) => {
-    const btn = document.createElement('button');
+  var catFilter = document.getElementById('catFilter');
+  var cats = AdireStore.getCategories();
+  cats.forEach(function(label, key) {
+    var btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.cat = key;
     btn.textContent = label;
     catFilter.appendChild(btn);
   });
 
-  // Read URL params for deep-linking
-  let activeCat = safeParam('cat') || 'all';
-  let searchTerm = '';
-  let sortBy = 'featured';
+  var activeCat = safeParam('cat') || 'all';
+  var searchTerm = '';
+  var sortBy = 'featured';
 
-  // Set active cat from URL
-  catFilter.querySelectorAll('.filter-btn').forEach(b => {
+  [].forEach.call(catFilter.querySelectorAll('.filter-btn'), function(b) {
     b.classList.toggle('active', b.dataset.cat === activeCat);
   });
 
-  catFilter.addEventListener('click', e => {
+  catFilter.addEventListener('click', function(e) {
     if (!e.target.classList.contains('filter-btn')) return;
     activeCat = e.target.dataset.cat;
-    catFilter.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === activeCat));
+    [].forEach.call(catFilter.querySelectorAll('.filter-btn'), function(b) { b.classList.toggle('active', b.dataset.cat === activeCat); });
     renderProducts();
-    AdireAnalytics.filterUsed(activeCat);
   });
 
-  // --- Search (300ms debounce) ---
-  const searchInput = document.getElementById('searchInput');
-  let searchTimer;
-  searchInput.addEventListener('input', () => {
+  // --- Search ---
+  var searchInput = document.getElementById('searchInput');
+  var searchTimer;
+  searchInput.addEventListener('input', function() {
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
+    searchTimer = setTimeout(function() {
       searchTerm = searchInput.value.trim();
       renderProducts();
-      if (searchTerm) AdireAnalytics.searchPerformed(searchTerm, getFilteredProducts().length);
     }, 300);
   });
 
   // --- Sort ---
-  const sortSelect = document.getElementById('sortSelect');
-  sortSelect.addEventListener('change', () => { sortBy = sortSelect.value; renderProducts(); });
+  var sortSelect = document.getElementById('sortSelect');
+  sortSelect.addEventListener('change', function() { sortBy = sortSelect.value; renderProducts(); });
 
   // --- Clear filters ---
-  document.getElementById('clearFilters').addEventListener('click', () => {
+  document.getElementById('clearFilters').addEventListener('click', function() {
     activeCat = 'all';
     searchTerm = '';
     searchInput.value = '';
     sortBy = 'featured';
     sortSelect.value = 'featured';
-    catFilter.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
+    [].forEach.call(catFilter.querySelectorAll('.filter-btn'), function(b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
     renderProducts();
   });
 
-  // --- Get filtered + sorted products ---
   function getFilteredProducts() {
-    let items = searchTerm ? AdireStore.search(searchTerm) : AdireStore.getAll();
-    if (activeCat !== 'all') items = items.filter(p => p.category === activeCat);
-
+    var items = searchTerm ? AdireStore.search(searchTerm) : AdireStore.getAll();
+    if (activeCat !== 'all') items = items.filter(function(p) { return p.category === activeCat; });
     switch (sortBy) {
-      case 'price-asc': items.sort((a, b) => a.price - b.price); break;
-      case 'price-desc': items.sort((a, b) => b.price - a.price); break;
-      case 'name-asc': items.sort((a, b) => a.name.localeCompare(b.name)); break;
-      case 'newest': items.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); break;
-      case 'featured': items.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)); break;
+      case 'price-asc': items.sort(function(a, b) { return a.price - b.price; }); break;
+      case 'price-desc': items.sort(function(a, b) { return b.price - a.price; }); break;
+      case 'name-asc': items.sort(function(a, b) { return a.name.localeCompare(b.name); }); break;
+      case 'newest': items.sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }); break;
+      case 'featured': items.sort(function(a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0); }); break;
     }
     return items;
   }
 
-  // --- Render ---
-  const grid = document.getElementById('productsGrid');
-  const empty = document.getElementById('emptyState');
-  const count = document.getElementById('resultsCount');
+  var grid = document.getElementById('productsGrid');
+  var empty = document.getElementById('emptyState');
+  var count = document.getElementById('resultsCount');
 
   function renderProducts() {
-    const items = getFilteredProducts();
-    count.textContent = `${items.length} item${items.length !== 1 ? 's' : ''}`;
-
+    var items = getFilteredProducts();
+    count.textContent = items.length + ' item' + (items.length !== 1 ? 's' : '');
     if (!items.length) {
       grid.style.display = 'none';
       empty.style.display = 'block';
@@ -251,103 +249,56 @@
     grid.style.display = '';
     empty.style.display = 'none';
     grid.innerHTML = items.map(productCardHTML).join('');
-
-    // Observe fade-in
-    grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    [].forEach.call(grid.querySelectorAll('.fade-in'), function(el) { observer.observe(el); });
   }
 
   function productCardHTML(p) {
-    const badgeClass = p.badge === 'Limited' ? 'limited' : p.badge === 'New' ? 'new' : '';
-    const stockClass = p.stock === 'limited' ? 'limited' : p.stock === 'out' ? 'out' : 'available';
-    return `
-    <div class="product-card fade-in" data-sku="${safeText(p.sku)}">
-      <div class="product-card-img">
-        ${p.badge ? `<span class="product-badge ${badgeClass}">${safeText(p.badge)}</span>` : ''}
-        <img src="${safeText(p.image)}" alt="${safeText(p.name)}" loading="lazy">
-      </div>
-      <div class="product-card-body">
-        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem">
-          <span class="product-card-cat" style="margin-bottom:0">${safeText(p.categoryLabel)}</span>
-          <span class="stock-pill ${stockClass}">${p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Sold Out'}</span>
-        </div>
-        <div class="product-card-name">${safeText(p.name)}</div>
-        <div class="product-card-desc">${safeText(p.shortDesc)}</div>
-        <div class="product-card-footer">
-          <span class="product-card-price">${AdireStore.formatPrice(p.price)}</span>
-          <span class="product-card-action">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-      </div>
-    </div>`;
+    var badgeClass = p.badge === 'Limited' ? 'limited' : p.badge === 'New' ? 'new' : '';
+    var stockClass = p.stock === 'limited' ? 'limited' : p.stock === 'out' ? 'out' : 'available';
+    return '<div class="product-card fade-in" data-sku="' + safeText(p.sku) + '"><div class="product-card-img">' + (p.badge ? '<span class="product-badge ' + badgeClass + '">' + safeText(p.badge) + '</span>' : '') + '<img src="' + safeText(p.image) + '" alt="' + safeText(p.name) + '" loading="lazy"></div><div class="product-card-body"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem"><span class="product-card-cat" style="margin-bottom:0">' + safeText(p.categoryLabel) + '</span><span class="stock-pill ' + stockClass + '">' + (p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Sold Out') + '</span></div><div class="product-card-name">' + safeText(p.name) + '</div><div class="product-card-desc">' + safeText(p.shortDesc) + '</div><div class="product-card-footer"><span class="product-card-price">' + AdireStore.formatPrice(p.price) + '</span><span class="product-card-action"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></div>';
   }
 
   renderProducts();
 
-  // --- Product modal ---
-  const overlay = document.getElementById('modalOverlay');
-  const modal = document.getElementById('modal');
+  var overlay = document.getElementById('modalOverlay');
+  var modal = document.getElementById('modal');
 
-  grid.addEventListener('click', e => {
-    const card = e.target.closest('.product-card');
+  grid.addEventListener('click', function(e) {
+    var card = e.target.closest('.product-card');
     if (!card) return;
-    const p = AdireStore.getBySku(card.dataset.sku);
+    var p = AdireStore.getBySku(card.dataset.sku);
     if (!p) return;
     openModal(p);
   });
 
   function openModal(p) {
-    AdireAnalytics.productViewed(p);
-    modal.innerHTML = `
-      <div class="modal-img"><img src="${safeText(p.image)}" alt="${safeText(p.name)}"></div>
-      <div class="modal-body">
-        <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-        <div class="modal-cat">${safeText(p.categoryLabel)} · <span class="stock-pill ${p.stock}">${p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Sold Out'}</span></div>
-        <h3 class="modal-name">${safeText(p.name)}</h3>
-        <div style="font-size:0.75rem;color:var(--gray-500);margin-bottom:0.5rem">SKU: ${safeText(p.sku)}</div>
-        <div class="modal-price">${AdireStore.formatPrice(p.price)}</div>
-        <p class="modal-desc">${safeText(p.description)}</p>
-        <div class="modal-tags">${p.tags.map(t => `<span class="modal-tag">${safeText(t)}</span>`).join('')}</div>
-        <label style="font-size:0.75rem;font-weight:600;color:var(--gray-700);margin-bottom:0.35rem;display:block">SELECT SIZE</label>
-        <div class="modal-sizes">${p.sizes.map((s,i) => `<button class="size-btn${i===0?' selected':''}" data-size="${safeText(s)}">${safeText(s)}</button>`).join('')}</div>
-        <a class="btn btn-whatsapp btn-lg" id="modalOrder" href="${AdireStore.whatsAppLink(p, p.sizes[0])}" target="_blank" rel="noopener" style="width:100%">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-          Order via WhatsApp
-        </a>
-      </div>`;
+    modal.innerHTML = '<div class="modal-img"><img src="' + safeText(p.image) + '" alt="' + safeText(p.name) + '"></div><div class="modal-body"><button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button><div class="modal-cat">' + safeText(p.categoryLabel) + ' \u00b7 <span class="stock-pill ' + p.stock + '">' + (p.stock === 'available' ? 'In Stock' : p.stock === 'limited' ? 'Limited' : 'Sold Out') + '</span></div><h3 class="modal-name">' + safeText(p.name) + '</h3><div style="font-size:0.75rem;color:var(--gray-500);margin-bottom:0.5rem">SKU: ' + safeText(p.sku) + '</div><div class="modal-price">' + AdireStore.formatPrice(p.price) + '</div><p class="modal-desc">' + safeText(p.description) + '</p><div class="modal-tags">' + p.tags.map(function(t) { return '<span class="modal-tag">' + safeText(t) + '</span>'; }).join('') + '</div><label style="font-size:0.75rem;font-weight:600;color:var(--gray-700);margin-bottom:0.35rem;display:block">SELECT SIZE</label><div class="modal-sizes">' + p.sizes.map(function(s, i) { return '<button class="size-btn' + (i === 0 ? ' selected' : '') + '" data-size="' + safeText(s) + '">' + safeText(s) + '</button>'; }).join('') + '</div><a class="btn btn-whatsapp btn-lg" id="modalOrder" href="' + AdireStore.whatsAppLink(p, p.sizes[0]) + '" target="_blank" rel="noopener" style="width:100%"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Order via WhatsApp</a></div>';
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
 
     document.getElementById('modalClose').addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
 
-    let selectedSize = p.sizes[0];
-    modal.querySelectorAll('.size-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+    var selectedSize = p.sizes[0];
+    [].forEach.call(modal.querySelectorAll('.size-btn'), function(btn) {
+      btn.addEventListener('click', function() {
+        [].forEach.call(modal.querySelectorAll('.size-btn'), function(b) { b.classList.remove('selected'); });
         btn.classList.add('selected');
         selectedSize = btn.dataset.size;
         document.getElementById('modalOrder').href = AdireStore.whatsAppLink(p, selectedSize);
       });
     });
-
-    document.getElementById('modalOrder').addEventListener('click', () => AdireAnalytics.orderInitiated(p, selectedSize));
   }
 
   function closeModal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
-  // --- Intersection Observer ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
-
-  // --- Analytics ---
-  AdireAnalytics.catalogueViewed();
-  AdireAnalytics.pageView('Catalogue');
 
 })();
 </script>

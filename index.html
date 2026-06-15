@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.amplitude.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.pexels.com https://*.pexels.com data:; connect-src 'self' https://*.amplitude.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://images.pexels.com https://*.pexels.com data:;">
   <title>The Adire Store Limited — Authentic Nigerian Adire Clothing</title>
   <meta name="description" content="Premium hand-dyed Adire clothing from Nigeria. Agbada sets, dresses, kaftans, and raw fabric — all crafted by master artisans in Abeokuta.">
   <meta property="og:title" content="The Adire Store Limited">
@@ -243,173 +243,124 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/security.js" data-adire-safe></script>
 <script src="js/store.js" data-adire-safe></script>
-<script src="js/analytics.js" data-adire-safe></script>
 <script data-adire-safe>
 (function(){
   'use strict';
 
+  var entityMap = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' };
+  function safeText(str) { return String(str).replace(/[&<>"'\/]/g, function(s) { return entityMap[s]; }); }
+
   // --- Nav scroll ---
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
   // --- Mobile toggle ---
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+  [].forEach.call(links.querySelectorAll('a'), function(a) { a.addEventListener('click', function() { links.classList.remove('open'); }); });
 
   // --- WhatsApp links ---
-  const waLink = AdireStore.whatsAppGeneral();
+  var waLink = AdireStore.whatsAppGeneral();
   document.getElementById('waFloat').href = waLink;
   document.getElementById('ctaWhatsApp').href = waLink;
   document.getElementById('footerWhatsApp').href = waLink;
-  document.getElementById('waFloat').addEventListener('click', () => AdireAnalytics.whatsAppFloatClicked());
 
   // --- Filter bar ---
-  const filterBar = document.getElementById('filterBar');
-  const cats = AdireStore.getCategories();
-  cats.forEach((label, key) => {
-    const btn = document.createElement('button');
+  var filterBar = document.getElementById('filterBar');
+  var cats = AdireStore.getCategories();
+  cats.forEach(function(label, key) {
+    var btn = document.createElement('button');
     btn.className = 'filter-btn';
     btn.dataset.cat = key;
     btn.textContent = label;
     filterBar.appendChild(btn);
   });
 
-  let activeFilter = 'all';
-  filterBar.addEventListener('click', e => {
+  var activeFilter = 'all';
+  filterBar.addEventListener('click', function(e) {
     if (!e.target.classList.contains('filter-btn')) return;
     activeFilter = e.target.dataset.cat;
-    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === activeFilter));
+    [].forEach.call(filterBar.querySelectorAll('.filter-btn'), function(b) { b.classList.toggle('active', b.dataset.cat === activeFilter); });
     renderProducts();
-    AdireAnalytics.filterUsed(activeFilter);
   });
 
   // --- Render products ---
-  const grid = document.getElementById('productsGrid');
+  var grid = document.getElementById('productsGrid');
 
   function renderProducts() {
-    const items = activeFilter === 'all' ? AdireStore.getFeatured() : AdireStore.getByCategory(activeFilter).filter(p => p.featured);
-    grid.innerHTML = items.length ? items.map(productCardHTML).join('') : '<p style="text-align:center;color:var(--gray-500);grid-column:1/-1;padding:2rem">No featured items in this category. <a href="catalogue.html" style="color:var(--terracotta);font-weight:600">Browse full catalogue →</a></p>';
+    var items = activeFilter === 'all' ? AdireStore.getFeatured() : AdireStore.getByCategory(activeFilter).filter(function(p) { return p.featured; });
+    grid.innerHTML = items.length ? items.map(productCardHTML).join('') : '<p style="text-align:center;color:var(--gray-500);grid-column:1/-1;padding:2rem">No featured items in this category. <a href="catalogue.html" style="color:var(--terracotta);font-weight:600">Browse full catalogue \u2192</a></p>';
   }
 
   function productCardHTML(p) {
-    const badgeClass = p.badge === 'Limited' ? 'limited' : p.badge === 'New' ? 'new' : '';
-    return `
-    <div class="product-card fade-in" data-sku="${safeText(p.sku)}">
-      <div class="product-card-img">
-        ${p.badge ? `<span class="product-badge ${badgeClass}">${safeText(p.badge)}</span>` : ''}
-        <img src="${safeText(p.image)}" alt="${safeText(p.name)}" loading="lazy">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-cat">${safeText(p.categoryLabel)}</div>
-        <div class="product-card-name">${safeText(p.name)}</div>
-        <div class="product-card-desc">${safeText(p.shortDesc)}</div>
-        <div class="product-card-footer">
-          <span class="product-card-price">${AdireStore.formatPrice(p.price)}</span>
-          <span class="product-card-action">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-        </div>
-      </div>
-    </div>`;
+    var badgeClass = p.badge === 'Limited' ? 'limited' : p.badge === 'New' ? 'new' : '';
+    return '<div class="product-card fade-in" data-sku="' + safeText(p.sku) + '"><div class="product-card-img">' + (p.badge ? '<span class="product-badge ' + badgeClass + '">' + safeText(p.badge) + '</span>' : '') + '<img src="' + safeText(p.image) + '" alt="' + safeText(p.name) + '" loading="lazy"></div><div class="product-card-body"><div class="product-card-cat">' + safeText(p.categoryLabel) + '</div><div class="product-card-name">' + safeText(p.name) + '</div><div class="product-card-desc">' + safeText(p.shortDesc) + '</div><div class="product-card-footer"><span class="product-card-price">' + AdireStore.formatPrice(p.price) + '</span><span class="product-card-action"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div></div></div>';
   }
 
   renderProducts();
 
   // --- Product modal ---
-  const overlay = document.getElementById('modalOverlay');
-  const modal = document.getElementById('modal');
+  var overlay = document.getElementById('modalOverlay');
+  var modal = document.getElementById('modal');
 
-  grid.addEventListener('click', e => {
-    const card = e.target.closest('.product-card');
+  grid.addEventListener('click', function(e) {
+    var card = e.target.closest('.product-card');
     if (!card) return;
-    const p = AdireStore.getBySku(card.dataset.sku);
+    var p = AdireStore.getBySku(card.dataset.sku);
     if (!p) return;
     openModal(p);
   });
 
   function openModal(p) {
-    AdireAnalytics.productViewed(p);
-    modal.innerHTML = `
-      <div class="modal-img"><img src="${safeText(p.image)}" alt="${safeText(p.name)}"></div>
-      <div class="modal-body">
-        <button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-        <div class="modal-cat">${safeText(p.categoryLabel)}</div>
-        <h3 class="modal-name">${safeText(p.name)}</h3>
-        <div class="modal-price">${AdireStore.formatPrice(p.price)}</div>
-        <p class="modal-desc">${safeText(p.description)}</p>
-        <div class="modal-tags">${p.tags.map(t => `<span class="modal-tag">${safeText(t)}</span>`).join('')}</div>
-        <label style="font-size:0.75rem;font-weight:600;color:var(--gray-700);margin-bottom:0.35rem;display:block">SELECT SIZE</label>
-        <div class="modal-sizes">${p.sizes.map((s,i) => `<button class="size-btn${i===0?' selected':''}" data-size="${safeText(s)}">${safeText(s)}</button>`).join('')}</div>
-        <a class="btn btn-whatsapp btn-lg" id="modalOrder" href="${AdireStore.whatsAppLink(p, p.sizes[0])}" target="_blank" rel="noopener" style="width:100%">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-          Order via WhatsApp
-        </a>
-      </div>`;
+    modal.innerHTML = '<div class="modal-img"><img src="' + safeText(p.image) + '" alt="' + safeText(p.name) + '"></div><div class="modal-body"><button class="modal-close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button><div class="modal-cat">' + safeText(p.categoryLabel) + '</div><h3 class="modal-name">' + safeText(p.name) + '</h3><div class="modal-price">' + AdireStore.formatPrice(p.price) + '</div><p class="modal-desc">' + safeText(p.description) + '</p><div class="modal-tags">' + p.tags.map(function(t) { return '<span class="modal-tag">' + safeText(t) + '</span>'; }).join('') + '</div><label style="font-size:0.75rem;font-weight:600;color:var(--gray-700);margin-bottom:0.35rem;display:block">SELECT SIZE</label><div class="modal-sizes">' + p.sizes.map(function(s, i) { return '<button class="size-btn' + (i === 0 ? ' selected' : '') + '" data-size="' + safeText(s) + '">' + safeText(s) + '</button>'; }).join('') + '</div><a class="btn btn-whatsapp btn-lg" id="modalOrder" href="' + AdireStore.whatsAppLink(p, p.sizes[0]) + '" target="_blank" rel="noopener" style="width:100%"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.609l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Order via WhatsApp</a></div>';
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Close
     document.getElementById('modalClose').addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
 
-    // Sizes
-    let selectedSize = p.sizes[0];
-    modal.querySelectorAll('.size-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+    var selectedSize = p.sizes[0];
+    [].forEach.call(modal.querySelectorAll('.size-btn'), function(btn) {
+      btn.addEventListener('click', function() {
+        [].forEach.call(modal.querySelectorAll('.size-btn'), function(b) { b.classList.remove('selected'); });
         btn.classList.add('selected');
         selectedSize = btn.dataset.size;
         document.getElementById('modalOrder').href = AdireStore.whatsAppLink(p, selectedSize);
       });
     });
-
-    // Track order click
-    document.getElementById('modalOrder').addEventListener('click', () => AdireAnalytics.orderInitiated(p, selectedSize));
   }
 
   function closeModal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
   // --- Testimonials ---
-  const testimonials = [
+  var testimonials = [
     { text: "The quality of the agbada I ordered was beyond my expectations. The indigo is so rich and the embroidery detail is stunning. Wore it to my brother's wedding and got compliments all day.", author: "Olumide A.", loc: "Lagos", initials: "OA" },
     { text: "Finally found a store that does authentic adire. Not the mass-produced stuff you see everywhere. My wrap dress is genuinely one of a kind. The fabric feels incredible.", author: "Ngozi E.", loc: "Abuja", initials: "NE" },
     { text: "Ordered raw fabric to take to my tailor and the quality is impeccable. The eleko resist pattern is crisp and the dye is deep, even after multiple washes. Will order again.", author: "Bimpe O.", loc: "Ibadan", initials: "BO" },
     { text: "The WhatsApp ordering process is so easy. They were responsive, sent progress photos of my kaftan being made, and delivery was faster than expected. 10/10 experience.", author: "Chidi N.", loc: "Port Harcourt", initials: "CN" },
     { text: "I bought matching outfits for my family reunion. Everyone was amazed at the craftsmanship. The Adire Store made us look like royalty. Already planning our next order.", author: "Funke D.", loc: "Abeokuta", initials: "FD" },
-    { text: "As someone in fashion, I appreciate the attention to detail. The fusion kaftan with ankara panels is genius — traditional meets contemporary perfectly. My clients love it.", author: "Tunde K.", loc: "Lagos", initials: "TK" }
+    { text: "As someone in fashion, I appreciate the attention to detail. The fusion kaftan with ankara panels is genius \u2014 traditional meets contemporary perfectly. My clients love it.", author: "Tunde K.", loc: "Lagos", initials: "TK" }
   ];
 
-  const tGrid = document.getElementById('testimonialsGrid');
-  const star = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
-  tGrid.innerHTML = testimonials.map(t => `
-    <div class="testimonial-card fade-in">
-      <div class="testimonial-stars">${star.repeat(5)}</div>
-      <p class="testimonial-text">"${safeText(t.text)}"</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">${t.initials}</div>
-        <div><div class="testimonial-name">${safeText(t.author)}</div><div class="testimonial-loc">${safeText(t.loc)}</div></div>
-      </div>
-    </div>`).join('');
+  var tGrid = document.getElementById('testimonialsGrid');
+  var star = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  tGrid.innerHTML = testimonials.map(function(t) {
+    return '<div class="testimonial-card fade-in"><div class="testimonial-stars">' + star.repeat(5) + '</div><p class="testimonial-text">"' + safeText(t.text) + '"</p><div class="testimonial-author"><div class="testimonial-avatar">' + t.initials + '</div><div><div class="testimonial-name">' + safeText(t.author) + '</div><div class="testimonial-loc">' + safeText(t.loc) + '</div></div></div></div>';
+  }).join('');
 
   // --- Intersection Observer for fade-in ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
-  function observeAll() { document.querySelectorAll('.fade-in').forEach(el => observer.observe(el)); }
+  function observeAll() { [].forEach.call(document.querySelectorAll('.fade-in'), function(el) { observer.observe(el); }); }
   observeAll();
-  // Re-observe after products render
   setTimeout(observeAll, 100);
-
-  // --- Analytics ---
-  AdireAnalytics.pageView('Home');
 
 })();
 </script>
