@@ -15,12 +15,16 @@
     { sku: 'ADS-008', name: '\u1eccm\u1ecd Ol\u00fawa Mini Dress', category: 'dress', categoryLabel: 'Dress', badge: '', price: 28000, stock: 'available', featured: false, shortDesc: 'Playful mini in triple-dye cobalt. Puffed sleeves, round neck, relaxed fit.', description: 'Triple-dyed to achieve an intense, saturated cobalt-indigo shade, this above-the-knee dress features puffed short sleeves and a relaxed round neckline.', tags: ['Mini Length', 'Triple-Dyed', 'Puffed Sleeves', 'Unique Pattern'], sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'], image: 'https://images.pexels.com/photos/35273637/pexels-photo-35273637.jpeg?auto=compress&cs=tinysrgb&w=600', createdAt: '2024-01-08' }
   ];
 
+  function isValidProduct(p) {
+    return p && p.sku && p.name && typeof p.price === 'number' && p.image && p.category;
+  }
+
   function loadProducts() {
     try {
       var raw = localStorage.getItem(STORE_KEY);
       if (raw) {
         var parsed = JSON.parse(raw);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed.every(isValidProduct)) {
           return parsed;
         }
       }
@@ -37,7 +41,7 @@
   var _cache = null;
 
   function getAll() {
-    if (_cache) return _cache;
+    if (_cache !== null) return _cache;
     _cache = loadProducts();
     return _cache;
   }

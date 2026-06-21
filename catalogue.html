@@ -271,6 +271,15 @@
       '</div></div></div>';
   }
 
+  var observer;
+  try {
+    observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+  } catch (e) { observer = { observe: function () {}, unobserve: function () {} }; }
+
   renderProducts();
 
   var overlay = document.getElementById('modalOverlay');
@@ -322,12 +331,6 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.1 });
 
 })();
 </script>
