@@ -224,8 +224,8 @@
   'use strict';
 
   function safeText(str) {
-    var m = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;' };
-    return String(str).replace(/[&<>"'\/]/g, function (s) { return m[s]; });
+    var m = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+    return String(str).replace(/[&<>"']/g, function (s) { return m[s]; });
   }
 
   var nav = document.getElementById('nav');
